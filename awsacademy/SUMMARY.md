@@ -8,4 +8,4 @@
 
 ## Pràctiques
 
-* [📎 UD03P01.- Configuració i ús d'un servidor SSH Linux](practiques/ud03p01.-configuracio-i-us-dun-servidor-ssh-linux.md)
+* [📎 UDXXP01.- Configuració d'un bastion host a AWS](practiques/udxxp01.-configuracio-dun-bastion-host-a-aws.md)

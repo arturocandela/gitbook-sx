@@ -6,11 +6,11 @@ description: Desplegament d'una màquina virtual Ubuntu Server 22.04 a AWS Acade
 
 En primer lloc, [accedim a la consola d'AWS](../).
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Consola d'AWS</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Consola d'AWS</p></figcaption></figure>
 
 En el buscador, introduïm les sigles 'EC2', i seleccionem l'opció 'EC2 - servidors virtuals en el núvol'.
 
-![](<../.gitbook/assets/image (2).png>)&#x20;
+![](<../.gitbook/assets/image (2) (1).png>)&#x20;
 
 A la pàgina d'instàncies podrem polsar sobre el link 'instancies en execució' i visualitzar el llistat d'instàncies desplegades a la nostra infraestructura al núvol d'AWS. &#x20;
 
