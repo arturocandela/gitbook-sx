@@ -1,41 +1,26 @@
 ---
-description: >-
-  Autenticació d'usuari a AWS Academy i accés a la consola d'administració de
-  serveis
+description: Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS
 ---
 
-# ⚒ Autenticació d'usuari a AWS Academy i accés a la consola d'administració de serveis
+# ⚒ Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS
 
-En primer lloc, accedim a la [pàgina d'autenticació d'estudiants a AWS Academy](https://www.awsacademy.com/vforcesite/LMS\_Login), i polsem sobre el botó 'Student Login'.
+## Introducció.
 
-<figure><img src=".gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
+Apache 2 HTTP Server és un servidor web de codi obert, que ens permet allotjar llocs web, tant estàtics com dinàmics.&#x20;
 
-Introduïm el nostre usuari i contrasenya, i polsem el botó 'Iniciar sessió'.
+Apache 2 destaca per la seva arquitectura modular, flexibilitat en la configuració, suport a la seguretat i rendiment, essent àmpliament utilitzat per a publicar contingut a la web.
 
-<figure><img src=".gitbook/assets/image (90).png" alt=""><figcaption><p>Autenticació d'usuari a AWS Academy</p></figcaption></figure>
+## Configuració de la instància EC2.
 
-Una volta autenticats, podrem visualitzar els cursos als quals pertanyem. Al nostre cas, accedim al curs AWS Academy Learner Lab de Serveis en Xarxa de SMX.
+Per a configurar el nostre servidor web Apache 2, haurem de:
 
-<figure><img src=".gitbook/assets/image (91).png" alt=""><figcaption><p>Selecció de cursos en els quals estem matriculats.</p></figcaption></figure>
+* [Configurar un grup de seguretat internet](http://127.0.0.1:5000/s/dcAEDgX05ILtqXlw2HAH/pindoles-formatives/configuracio-dels-grups-de-seguretat/configuracio-del-grup-de-seguretat-internet.), que permetrà l'accés a internet de la nostra instància EC2, per a la instal·lació de paquets.
+* [Configurar un grup de seguretat ssh-extern](http://127.0.0.1:5000/s/dcAEDgX05ILtqXlw2HAH/pindoles-formatives/configuracio-dels-grups-de-seguretat/configuracio-del-grup-de-seguretat-ssh-extern.), que permetrà l'accés SSH a la nostra instància EC2, des d'internet, per a efectuar les operacions de manteniment.
+* [Configurar un grup de seguretat http-https](http://127.0.0.1:5000/s/dcAEDgX05ILtqXlw2HAH/pindoles-formatives/configuracio-dels-grups-de-seguretat/configuracio-del-grup-de-seguretat-http-https.), que permetrà l'accés als ports tcp/80 (http) i tcp/443 (https) a la nostra instància, per servir les webs allotjades al mateix.
+* [Configurar una instància EC2](http://127.0.0.1:5000/s/dcAEDgX05ILtqXlw2HAH/pindoles-formatives/desplegament-duna-maquina-virtual-ubuntu-server-22.04-a-aws-academy) amb Ubuntu Server 2023, que apliqui els grups de seguretat configurats en els punts anteriors.
+* Instal·lació i configuració del programari Apache 2.&#x20;
 
-Una volta accedim al curs, hem de polsar l'opció 'Llançament del laboratori', dins de la secció de 'continguts'.&#x20;
+Els primers 4 punts podem fer-los seguint les instruccions dels enllaços de cada un dels paràgrafs.&#x20;
 
-<figure><img src=".gitbook/assets/image (92).png" alt=""><figcaption><p>Accés al laboratori.</p></figcaption></figure>
+En les pàgines adients s'explicarà la instal·lació i configuració del servidor web Apache 2.
 
-A continuació, polsem sobre el botó 'Carregar llançament del laboratori'.
-
-<figure><img src=".gitbook/assets/image (93).png" alt=""><figcaption><p>Carregar llançament del laboratori</p></figcaption></figure>
-
-S'obrirà una finestra nova, amb l'entorn virtual d'AWS, amb 100 $ de crèdit, per fer les activitats d'aula en un entorn en el núvol real.&#x20;
-
-Per a iniciar les nostres proves, haurem d'iniciar els serveis virtuals polsant sobre el botó 'Start Lab'.
-
-<figure><img src=".gitbook/assets/image (94).png" alt=""><figcaption><p>Iniciar serveis del laboratori</p></figcaption></figure>
-
-Esperem que la icona a la dreta del text AWS passa a verd, i polsem sobre el text AWS.&#x20;
-
-<figure><img src=".gitbook/assets/image (95).png" alt=""><figcaption><p>Accés a la consola d'administració de serveis d'AWS</p></figcaption></figure>
-
-Accedirem a un entorn real d'administració de serveis en AWS. A partir d'ara haurem de tindre cura de l'import que consumeixin els serveis que despleguem.
-
-<figure><img src=".gitbook/assets/image (96).png" alt=""><figcaption><p>Consola d'administració de serveis d'AWS</p></figcaption></figure>
