@@ -14,4 +14,4 @@
 
 ## Pràctiques
 
-* [📎 UD03P01.- Configuració i ús d'un servidor SSH Linux](practiques/ud03p01.-configuracio-i-us-dun-servidor-ssh-linux.md)
+* [📎 UD03P01.- Configuració d'un servidor HTTP amb Apache 2](practiques/ud03p01.-configuracio-dun-servidor-http-amb-apache-2.md)
