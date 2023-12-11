@@ -1,5 +1,5 @@
 ---
-description: Configuració del grup de seguretat 'ssh-extern'.
+description: Configuració del grup de seguretat 'rdp-extern'.
 ---
 
 # ⚒ Configuració del grup de seguretat 'rdp-extern'.

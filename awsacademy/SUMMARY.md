@@ -9,6 +9,7 @@
   * [⚒ Configuració del grup de seguretat 'rdp-extern'.](pindoles-formatives/configuracio-dels-grups-de-seguretat/configuracio-del-grup-de-seguretat-rdp-extern..md)
   * [⚒ Configuració del grup de seguretat 'http-https.](pindoles-formatives/configuracio-dels-grups-de-seguretat/configuracio-del-grup-de-seguretat-http-https..md)
 * [⚒ Desplegament d'una màquina virtual Ubuntu Server 22.04 a AWS Academy](pindoles-formatives/desplegament-duna-maquina-virtual-ubuntu-server-22.04-a-aws-academy.md)
+* [⚒ Desplegament d'una màquina virtual Windows Server 2022 a AWS Academy](pindoles-formatives/desplegament-duna-maquina-virtual-windows-server-2022-a-aws-academy.md)
 
 ## Pràctiques
 
