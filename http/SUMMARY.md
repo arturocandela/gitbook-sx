@@ -2,15 +2,15 @@
 
 ## Pindoles formatives
 
-* [⚒ Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS](README.md)
-  * [⚒ Instal·lació del servei.](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/instal-lacio-del-servei..md)
-  * [⚒ Fitxers de configuració.](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/fitxers-de-configuracio..md)
-  * [⚒ VirtualHost per defecte: 000-default.conf](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/virtualhost-per-defecte-000-default.conf.md)
-  * [⚒ Directoris virtuals.](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/directoris-virtuals..md)
-  * [⚒ Hosts virtuals.](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/hosts-virtuals..md)
-* [⚒ IIS, instal·lat a Windows Server 2022, desplegat a AWS](pindoles-formatives/iis-instal-lat-a-windows-server-2022-desplegat-a-aws/README.md)
-  * [⚒ Instal·lació del servei.](pindoles-formatives/iis-instal-lat-a-windows-server-2022-desplegat-a-aws/instal-lacio-del-servei..md)
-  * [⚒ Hosts virtuals.](pindoles-formatives/iis-instal-lat-a-windows-server-2022-desplegat-a-aws/hosts-virtuals..md)
+* [⚒ UD04.01.- Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS](README.md)
+  * [⚒ UD04.01.01.- Instal·lació del servei.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.01.-instal-lacio-del-servei..md)
+  * [⚒ UD04.01.02.- Fitxers de configuració.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.02.-fitxers-de-configuracio..md)
+  * [⚒ UD04.01.03.- VirtualHost per defecte: 000-default.conf](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.03.-virtualhost-per-defecte-000-default.conf.md)
+  * [⚒ UD04.01.04.- Directoris virtuals.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.04.-directoris-virtuals..md)
+  * [⚒ UD04.01.05.- Hosts virtuals.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.05.-hosts-virtuals..md)
+* [⚒ UD04.02.- IIS, instal·lat a Windows server 2022, desplegat a AWS](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/README.md)
+  * [⚒ UD04.02.01.- Instal·lació del servei IIS.](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/ud04.02.01.-instal-lacio-del-servei-iis..md)
+  * [⚒ UD04.02.02.- Hosts virtuals.](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/ud04.02.02.-hosts-virtuals..md)
 
 ## Pràctiques
 

@@ -2,7 +2,7 @@
 description: Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS
 ---
 
-# ⚒ Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS
+# ⚒ UD04.01.- Apache 2, instal·lat a Ubuntu Server 22.04, desplegat a AWS
 
 ## Introducció.
 
@@ -24,10 +24,10 @@ Els primers 4 punts podem fer-los seguint les instruccions dels enllaços de cad
 
 En les pàgines adients s'explicarà la instal·lació i configuració del servidor web Apache 2:
 
-* [Instal·lació del servei Apache 2](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/instal-lacio-del-servei..md).
-* [Localització dels fitxers de configuració](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/fitxers-de-configuracio..md).
-* [Configuració de directoris virtuals](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/directoris-virtuals..md).
-* [Configuració de hosts virtuals](pindoles-formatives/apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/hosts-virtuals..md).
+* [Instal·lació del servei Apache 2](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.01.-instal-lacio-del-servei..md).
+* [Localització dels fitxers de configuració](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.02.-fitxers-de-configuracio..md).
+* [Configuració de directoris virtuals](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.04.-directoris-virtuals..md).
+* [Configuració de hosts virtuals](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-22.04-desplegat-a-aws/ud04.01.05.-hosts-virtuals..md).
 
 
 
