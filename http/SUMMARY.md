@@ -11,6 +11,7 @@
 * [⚒ UD04.02.- IIS, instal·lat a Windows server 2022, desplegat a AWS](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/README.md)
   * [⚒ UD04.02.01.- Instal·lació del servei IIS.](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/ud04.02.01.-instal-lacio-del-servei-iis..md)
   * [⚒ UD04.02.02.- Hosts virtuals.](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/ud04.02.02.-hosts-virtuals..md)
+* [⚒ UD04.03.- Desplegament d'una web estàtica a Amazon S3](pindoles-formatives/ud04.03.-desplegament-duna-web-estatica-a-amazon-s3.md)
 
 ## Pràctiques
 
