@@ -23,15 +23,15 @@ Una volta configurat el servei SSH a la nova instància, podrem connectar amb el
 
 Accedim al panell d'EC2, al nostre compte d'AWS academy:
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Cerca d'EC2 al cercador de serveis.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>Cerca d'EC2 al cercador de serveis.</p></figcaption></figure>
 
 Dins del panell d'EC2, busquem l'opció "Security Groups", al menú de l'esquerra.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Accés a l'opció "Security Groups"</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Accés a l'opció "Security Groups"</p></figcaption></figure>
 
 Dins de la pàgina de grups de seguretat, polsem el botó "Crear nou grup de seguretat".
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Creació d'un nou grup de seguretat.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Creació d'un nou grup de seguretat.</p></figcaption></figure>
 
 Introduïm les dades bàsiques del grup de seguretat 'internet'.
 
