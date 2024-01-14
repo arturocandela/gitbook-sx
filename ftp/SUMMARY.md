@@ -9,7 +9,7 @@
 * [⚒ UD05.02.- servei FTP, instal·lat a Windows Server 2023, desplegat a AWS](pindoles-formatives/ud05.02.-servei-ftp-instal-lat-a-windows-server-2023-desplegat-a-aws/README.md)
   * [⚒ UD05.02.01.- Instal·lació del servei.](pindoles-formatives/ud05.02.-servei-ftp-instal-lat-a-windows-server-2023-desplegat-a-aws/ud05.02.01.-instal-lacio-del-servei..md)
   * [⚒ UD05.02.02.- Configuració d'accés anònim.](pindoles-formatives/ud05.02.-servei-ftp-instal-lat-a-windows-server-2023-desplegat-a-aws/ud05.02.02.-configuracio-dacces-anonim..md)
-  * [⚒ UD05.02.03.- Configuració d'accés amb usuari / contrasenya.](pindoles-formatives/ud05.02.-servei-ftp-instal-lat-a-windows-server-2023-desplegat-a-aws/ud05.02.03.-configuracio-dacces-amb-usuari-contrasenya..md)
+  * [⚒ UD05.02.03.- Configuració d'accés nominal.](pindoles-formatives/ud05.02.-servei-ftp-instal-lat-a-windows-server-2023-desplegat-a-aws/ud05.02.03.-configuracio-dacces-nominal..md)
 
 ## Pràctiques
 

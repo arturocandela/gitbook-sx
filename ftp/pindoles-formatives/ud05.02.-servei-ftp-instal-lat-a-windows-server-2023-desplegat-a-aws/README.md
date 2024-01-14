@@ -25,7 +25,7 @@ En les pàgines adients s'explicarà la instal·lació i configuració del serve
 
 * [Instal·lació del servei FTP](ud05.02.01.-instal-lacio-del-servei..md).
 * [Configuració d'accés anònim](ud05.02.02.-configuracio-dacces-anonim..md).
-* [Configuració d'accés amb usuari / contrasenya](ud05.02.03.-configuracio-dacces-amb-usuari-contrasenya..md).
+* [Configuració d'accés amb usuari / contrasenya](broken-reference).
 
 
 
