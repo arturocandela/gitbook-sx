@@ -14,5 +14,6 @@
 ## Pràctiques
 
 * [📎 UD05P01.- Configuració d'un servidor FTP amb VSFTPD](practiques/ud05p01.-configuracio-dun-servidor-ftp-amb-vsftpd.md)
+* [📎 UD05P02.- Configuració d'un servidor FTP amb Windows Server 2022](practiques/ud05p02.-configuracio-dun-servidor-ftp-amb-windows-server-2022.md)
 * [📎 UD04P02.- Configuració d'un servidor HTTP amb IIS.](practiques/ud04p02.-configuracio-dun-servidor-http-amb-iis..md)
 * [📎 UD04P03.- desplegament d'una web estàtica amb S3.](practiques/ud04p03.-desplegament-duna-web-estatica-amb-s3..md)
