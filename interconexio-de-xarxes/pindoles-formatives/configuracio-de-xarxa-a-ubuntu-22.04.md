@@ -1,8 +1,8 @@
 ---
-description: Configuració de les targetes de xarxa a Ubuntu 22.04 i LUbuntu 22.04
+description: Configuració de les targetes de xarxa a Ubuntu 22.04 i LUbuntu 24.04
 ---
 
-# ⚒ Configuració de xarxa a Ubuntu 22.04
+# ⚒️ Configuració de xarxa a Ubuntu 24.04
 
 Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu 22.04, i que té configurada una interfície de xarxa connectada a la xarxa interna 'aula'.
 
@@ -33,16 +33,14 @@ En aquest cas, podem observar que existeixen dues targetes de xarxa:
 * lo: referència a la xarxa de loopback (localhost)
 * <mark style="background-color:orange;">**enp0s3**</mark>: referència a la targeta de xarxa afegida a VirtualBox
 
-<!---->
-
-* [ ] Editem el fitxer de configuració de la xarxa, localitzar a la ruta **/etc/netplan/** amb el nostre editor de text preferit, i **amb permisos d'administrador** (fent servir sudo, si cal):
+- [ ] Editem el fitxer de configuració de la xarxa, localitzar a la ruta **/etc/netplan/** amb el nostre editor de text preferit, i **amb permisos d'administrador** (fent servir sudo, si cal):
 
 ```bash
 profe@sx-cli-profe01:~$ sudo vi /etc/netplan/01-network-manager-all.yaml
 password: 
 ```
 
-Al fitxer, respectant el format Yaml, haurem d'incloure els paràmetres de configuració de la targeta de xarxa. Per a l'exemple, configurarem la direcció estàtica 192.168.0.101/24, i deshabilitarem que el sistema demane una nova IP al servidor DCHP.&#x20;
+Al fitxer, respectant el format Yaml, haurem d'incloure els paràmetres de configuració de la targeta de xarxa. Per a l'exemple, configurarem la direcció estàtica 192.168.0.101/24, i deshabilitarem que el sistema demane una nova IP al servidor DCHP.
 
 ```yaml
 # Let NetworkManager manage all devices on this system
