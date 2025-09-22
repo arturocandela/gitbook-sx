@@ -1,8 +1,8 @@
 ---
-description: Configuració d'una porta d'enllaç amb Ubuntu server 22.04 i el programari ufw
+description: Configuració d'una porta d'enllaç amb Ubuntu server 24.04 i el programari ufw
 ---
 
-# ⚒ Configuració del servei de routing a Ubuntu Server 22.04
+# ⚒ Configuració del servei de routing a Ubuntu Server 24.04
 
 ### Escenari inicial:
 
@@ -14,7 +14,7 @@ Suposem configurades les targetes de xarxa interna de les màquines virtuals, am
 
 Les màquines clients disposaran d'una IP a partir de la 192.168.0.101.
 
-La màquina server, configurada amb un sistema operatiu basat a Ubuntu Server 22.04, disposarà de dues targetes de xarxa:
+La màquina server, configurada amb un sistema operatiu basat a Ubuntu Server 24.04, disposarà de dues targetes de xarxa:
 
 * La primera configurada a la xarxa aula, amb la IP fixa 192.168.0.100. Aquesta interfície de xarxa treballarà com a porta d'enllaç per a connectar a internet a les màquines de la xarxa aula que ho necessiten.&#x20;
 * La segona configurada com a xarxa NAT o Bridge, i assignació d'IP amb protocol DCHP.
@@ -151,6 +151,13 @@ Afegim la porta d'enllaç editant el fitxer de configuració Yaml de netplan, a 
 # Let NetworkManager manage all devices on this system
 network:
   version: 2
+# ⚠️ **ATENCIÓ:**
+# Si estàs utilitzant **Ubuntu Server** en comptes de Desktop, probablement hauries de posar `renderer: networkd` en lloc de `NetworkManager`.
+# Ubuntu Desktop utilitza NetworkManager per defecte, però Ubuntu Server NO.
+# Si utilitzes `renderer: NetworkManager` en Server, i NetworkManager NO està instal·lat i habilitat, la xarxa NO funcionarà.
+# Pots canviar el valor del renderer ací segons el teu cas.
+
+
   renderer: NetworkManager
   ethernets:
     enp0s3:
@@ -207,6 +214,13 @@ Per a solucionar-ho, haurem d'editar el fitxer de configuració de netplan, i af
 # Let NetworkManager manage all devices on this system
 network:
   version: 2
+# ⚠️ **ATENCIÓ:**
+# Si estàs utilitzant **Ubuntu Server** en comptes de Desktop, probablement hauries de posar `renderer: networkd` en lloc de `NetworkManager`.
+# Ubuntu Desktop utilitza NetworkManager per defecte, però Ubuntu Server NO.
+# Si utilitzes `renderer: NetworkManager` en Server, i NetworkManager NO està instal·lat i habilitat, la xarxa NO funcionarà.
+# Pots canviar el valor del renderer ací segons el teu cas.
+
+
   renderer: NetworkManager
   ethernets:
     enp0s3:

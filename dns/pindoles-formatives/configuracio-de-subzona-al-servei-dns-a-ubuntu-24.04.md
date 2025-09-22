@@ -1,10 +1,10 @@
 ---
-description: Configuració de subzona al servei DNS a Ubuntu Server 22.04
+description: Configuració de subzona al servei DNS a Ubuntu Server 24.04
 ---
 
-# ⚒ Configuració de subzona al servei DNS a Ubuntu 22.04
+# ⚒ Configuració de subzona al servei DNS a Ubuntu 24.04
 
-Partim de dues màquines virtual, amb un sistema operatiu basat a Ubuntu Server 22.04
+Partim de dues màquines virtual, amb un sistema operatiu basat a Ubuntu Server 24.04
 
 ### Configuració del servei DNS de zona del subdomini.&#x20;
 

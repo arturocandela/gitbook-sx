@@ -2,9 +2,9 @@
 
 ## Pindoles formatives
 
-* [⚒ Configuració del servei DNS a Ubuntu 22.04](README.md)
+* [⚒ Configuració del servei DNS a Ubuntu 24.04](README.md)
 * [⚒ Configuració del servei DNS a Windows Server 2022](pindoles-formatives/configuracio-del-servei-dns-a-windows-server-2022.md)
-* [⚒ Configuració de subzona al servei DNS a Ubuntu 22.04](pindoles-formatives/configuracio-de-subzona-al-servei-dns-a-ubuntu-22.04.md)
+* [⚒ Configuració de subzona al servei DNS a Ubuntu 24.04](pindoles-formatives/configuracio-de-subzona-al-servei-dns-a-ubuntu-24.04.md)
 
 ## Pràctiques
 

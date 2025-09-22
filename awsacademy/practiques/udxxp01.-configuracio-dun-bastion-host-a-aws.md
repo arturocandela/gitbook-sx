@@ -15,7 +15,7 @@ En primer lloc, configurarem dos grups de seguretat:
 * ssh-internet: permetrà connectar des d'internet al port 22 de les instàncies EC2 que apliquen el grup de seguretat.
 * Internet: permetrà l'accés a internet des de les instàncies EC2 que apliquen el grup de seguretat.
 
-Posteriorment, desplegarem una instància EC2, configurada amb els grups de seguretat definits, i amb el sistema operatiu Ubuntu Server 22.04.
+Posteriorment, desplegarem una instància EC2, configurada amb els grups de seguretat definits, i amb el sistema operatiu Ubuntu Server 24.04.
 
 Una volta configurat el servei SSH a la nova instància, podrem connectar amb el nostre client SSH favorit:
 
@@ -81,7 +81,7 @@ En el formulari de creació d'instàncies, configurem el nom de la instància.
 
 <figure><img src="../.gitbook/assets/image (138).png" alt=""><figcaption><p>Configuració de la instància.</p></figcaption></figure>
 
-A continuació devem seleccionar l'AMI (Amazon Machine Image), amb la que s'inicialitzarà la instància EC2, configurada amb un sistema operatiu i programari base. En aquest cas, configurada amb Ubuntu 22.04 LTS, amb el servei OpenSSH.
+A continuació devem seleccionar l'AMI (Amazon Machine Image), amb la que s'inicialitzarà la instància EC2, configurada amb un sistema operatiu i programari base. En aquest cas, configurada amb Ubuntu 24.04 LTS, amb el servei OpenSSH.
 
 <figure><img src="../.gitbook/assets/image (139).png" alt=""><figcaption><p>Selecció d'AMI</p></figcaption></figure>
 

@@ -1,10 +1,10 @@
 ---
-description: Instal·lació del servei SSH a Ubuntu Server 22.04
+description: Instal·lació del servei SSH a Ubuntu Server 24.04
 ---
 
-# ⚒ Instal·lació i prova del servei SSH a Ubuntu 22.04
+# ⚒ Instal·lació i prova del servei SSH a Ubuntu 24.04
 
-Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 22.04, i que té configurades tres interfícies de xarxa:
+Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 24.04, i que té configurades tres interfícies de xarxa:
 
 * Una connectada a NAT, perquè el servidor tinga accés a internet i puga instal·lar paquets.
 
@@ -91,7 +91,7 @@ Per a continuar, hem d'indicar que efectivament volem connectar al host, i ens s
 
 ```bash
 profe@192.168.56.3's password:
-Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.0-88-generic x86_64)
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 5.15.0-88-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

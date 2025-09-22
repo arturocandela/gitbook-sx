@@ -1,10 +1,10 @@
 ---
-description: Configuració de les targetes de xarxa a Ubuntu 22.04 i LUbuntu 24.04
+description: Configuració de les targetes de xarxa a Ubuntu 24.04 i LUbuntu 24.04
 ---
 
 # ⚒️ Configuració de xarxa a Ubuntu 24.04
 
-Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu 22.04, i que té configurada una interfície de xarxa connectada a la xarxa interna 'aula'.
+Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu 24.04, i que té configurada una interfície de xarxa connectada a la xarxa interna 'aula'.
 
 <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Configuració de la interfície de xarxa a VirtualBox</p></figcaption></figure>
 
@@ -46,6 +46,13 @@ Al fitxer, respectant el format Yaml, haurem d'incloure els paràmetres de confi
 # Let NetworkManager manage all devices on this system
 network:
   version: 2
+# ⚠️ **ATENCIÓ:**
+# Si estàs utilitzant **Ubuntu Server** en comptes de Desktop, probablement hauries de posar `renderer: networkd` en lloc de `NetworkManager`.
+# Ubuntu Desktop utilitza NetworkManager per defecte, però Ubuntu Server NO.
+# Si utilitzes `renderer: NetworkManager` en Server, i NetworkManager NO està instal·lat i habilitat, la xarxa NO funcionarà.
+# Pots canviar el valor del renderer ací segons el teu cas.
+
+
   renderer: NetworkManager
   ethernets:
     enp0s3:
