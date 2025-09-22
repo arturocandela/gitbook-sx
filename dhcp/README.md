@@ -1,10 +1,10 @@
 ---
-description: Configuració del servei DHCP a Ubuntu Server 22.04
+description: Configuració del servei DHCP a Ubuntu Server 24.04
 ---
 
-# ⚒ Configuració del servei DHCP a Ubuntu 22.04
+# ⚒ Configuració del servei DHCP a Ubuntu 24.04
 
-Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 22.04, i que té configurades dues interfícies de xarxa:
+Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 24.04, i que té configurades dues interfícies de xarxa:
 
 * Una connectada a NAT, perquè el servidor tinga accés a internet i puga instal·lar paquets.
 
@@ -122,6 +122,13 @@ profe@sx-cli-profe02:~$ cat /etc/netplan/01-network-manager-all.yaml
 # Let NetworkManager manage all devices on this system
 network:
   version: 2
+# ⚠️ **ATENCIÓ:**
+# Si estàs utilitzant **Ubuntu Server** en comptes de Desktop, probablement hauries de posar `renderer: networkd` en lloc de `NetworkManager`.
+# Ubuntu Desktop utilitza NetworkManager per defecte, però Ubuntu Server NO.
+# Si utilitzes `renderer: NetworkManager` en Server, i NetworkManager NO està instal·lat i habilitat, la xarxa NO funcionarà.
+# Pots canviar el valor del renderer ací segons el teu cas.
+
+
   renderer: NetworkManager
   ethernets:
     enp0s3:

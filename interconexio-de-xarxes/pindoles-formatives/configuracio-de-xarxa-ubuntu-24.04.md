@@ -1,8 +1,8 @@
 ---
-description: Configuració de les targetes de xarxa a Ubuntu 22.04 i LUbuntu 24.04
+description: Configuració de les targetes de xarxa a Ubuntu 24.04 i LUbuntu 24.04
 ---
 
-# ⚒️ Configuració de xarxa - Ubuntu 22.04
+# ⚒️ Configuració de xarxa - Ubuntu 24.04
 
 És recomanable actualitzar el sistema abans de començar:
 

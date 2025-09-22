@@ -2,8 +2,8 @@
 
 ## Pindoles formatives
 
-* [⚒ Instal·lació i prova del servei SSH a Ubuntu 22.04](README.md)
-* [⚒ Configuració del servei SSH a Ubuntu Server 22.04](pindoles-formatives/configuracio-del-servei-ssh-a-ubuntu-server-22.04.md)
+* [⚒ Instal·lació i prova del servei SSH a Ubuntu 24.04](README.md)
+* [⚒ Configuració del servei SSH a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-ssh-a-ubuntu-server-24.04.md)
 * [⚒ Modes d'ús del client SSH](pindoles-formatives/modes-dus-del-client-ssh.md)
 * [⚒ Connexió amb un servei SSH amb un parell de claus RSA](pindoles-formatives/connexio-amb-un-servei-ssh-amb-un-parell-de-claus-rsa.md)
 * [⚒ Muntatge d'un sistema de fitxers remot amb sshfs](pindoles-formatives/muntatge-dun-sistema-de-fitxers-remot-amb-sshfs.md)

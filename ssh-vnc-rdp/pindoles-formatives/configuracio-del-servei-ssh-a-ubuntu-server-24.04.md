@@ -1,10 +1,10 @@
 ---
-description: Configuració del servei SSH a Ubuntu Server 22.04
+description: Configuració del servei SSH a Ubuntu Server 24.04
 ---
 
-# ⚒ Configuració del servei SSH a Ubuntu Server 22.04
+# ⚒ Configuració del servei SSH a Ubuntu Server 24.04
 
-Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 22.04, i que té instal·lat el servei OpenSSH-server.
+Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 24.04, i que té instal·lat el servei OpenSSH-server.
 
 * [ ] Configuració del **servidor** OpenSSH
 

@@ -1,8 +1,8 @@
 ---
-description: Desplegament d'una màquina virtual Ubuntu Server 22.04 a AWS Academy
+description: Desplegament d'una màquina virtual Ubuntu Server 24.04 a AWS Academy
 ---
 
-# ⚒ UDXX-03.- Desplegament d'una màquina virtual Ubuntu Server 22.04 a AWS Academy
+# ⚒ UDXX-03.- Desplegament d'una màquina virtual Ubuntu Server 24.04 a AWS Academy
 
 En primer lloc, [accedim a la consola d'AWS](../).
 
@@ -28,7 +28,7 @@ Omplim el formulari, seguint les instruccions de l'assistent de desplegament de 
 
 <figure><img src="../.gitbook/assets/image (105).png" alt=""><figcaption><p>Configuració del nom de la instància</p></figcaption></figure>
 
-* Seleccionem la imatge de sistema operatiu i aplicacions (AMI - Amazon Machine Image) que volem carregar a la nova instància. Al nostre cas, seleccionem un Ubuntu Server 22.04 de 64 bits.
+* Seleccionem la imatge de sistema operatiu i aplicacions (AMI - Amazon Machine Image) que volem carregar a la nova instància. Al nostre cas, seleccionem un Ubuntu Server 24.04 de 64 bits.
 
 <figure><img src="../.gitbook/assets/image (106).png" alt=""><figcaption><p>Selecció d'AMI</p></figcaption></figure>
 

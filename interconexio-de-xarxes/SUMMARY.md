@@ -4,10 +4,10 @@
 
 * [⚒️ Configuració inicial de les màquines virtuals](README.md)
 * [⚒️ Paquets recomanats per a les màquines virtuals Linux](pindoles-formatives/paquets-recomanats-per-a-les-maquines-virtuals-linux.md)
-* [⚒️ Configuració de xarxa a Ubuntu 24.04](pindoles-formatives/configuracio-de-xarxa-a-ubuntu-22.04.md)
-* [⚒️ Configuració del servei de routing a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-de-routing-a-ubuntu-server-22.04.md)
+* [⚒️ Configuració de xarxa a Ubuntu 24.04](pindoles-formatives/configuracio-de-xarxa-a-ubuntu-24.04.md)
+* [⚒️ Configuració del servei de routing a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-de-routing-a-ubuntu-server-24.04.md)
 * [⚒️ Configuració del servei de routing a Windows Server 2022](pindoles-formatives/configuracio-del-servei-de-routing-a-windows-server-2022.md)
-* [⚒️ Configuració de xarxa - Ubuntu 22.04](pindoles-formatives/configuracio-de-xarxa-ubuntu-22.04.md)
+* [⚒️ Configuració de xarxa - Ubuntu 24.04](pindoles-formatives/configuracio-de-xarxa-ubuntu-24.04.md)
 
 ## Pràctiques
 
