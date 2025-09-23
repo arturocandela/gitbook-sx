@@ -12,5 +12,5 @@
 ## Pràctiques
 
 * [📎 AP-Q.1.1.1. - Configuració d'una xarxa local amb netplan i routing](practiques/ud00p01.-configuracio-duna-xarxa-local-amb-netplan-i-routing.md)
-* [📎 AP-Q.1.1.R.- Configuració d'una xarxa local amb netplan i routing](practiques/ud00p01r.-configuracio-duna-xarxa-local-amb-netplan-i-routing.md)
+* [📎 AP-Q.1.1.1.R. - Configuració d'una xarxa local amb netplan i routing](practiques/ud00p01r.-configuracio-duna-xarxa-local-amb-netplan-i-routing.md)
 * [✨ Our Features](practiques/our-features.md)
