@@ -1,3 +1,7 @@
+---
+description: Teoria amb pràctica del vist a classe
+---
+
 # 💡 Introducció a DHCP
 
 ## DHCP: múltiples servidors, reenviament i renovació de concessions
