@@ -1,218 +1,141 @@
----
-description: Configuració del servei DHCP a Ubuntu Server 24.04
----
+# 💡 Introducció a DHCP
 
-# ⚒ Configuració del servei DHCP a Ubuntu 24.04
+## DHCP: múltiples servidors, reenviament i renovació de concessions
 
-Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 24.04, i que té configurades dues interfícies de xarxa:
+### 1. Recordatori del funcionament bàsic
 
-* Una connectada a NAT, perquè el servidor tinga accés a internet i puga instal·lar paquets.
+El **DHCP (Dynamic Host Configuration Protocol)** és un protocol de xarxa que permet assignar de manera automàtica paràmetres de configuració de xarxa als clients (IP, màscara, porta d’enllaç, DNS…).\
+Funciona sobre **UDP** i utilitza dos ports:
 
-<figure><img src=".gitbook/assets/image (3).png" alt=""><figcaption><p>Configuració de la interfície de xarxa de VirtualBox a NAT</p></figcaption></figure>
+* Port **67** per al servidor.
+* Port **68** per al client.
 
-* Una connectada a la xarxa interna 'aula'.
+El procés estàndard d’assignació d’una adreça es coneix com a **DORA**:
 
-<figure><img src=".gitbook/assets/image (1).png" alt=""><figcaption><p>Configuració de la interfície de xarxa de VirtualBox a Xarxa interna 'aula'</p></figcaption></figure>
+1. **Discover** → El client envia un missatge de difusió (_broadcast_) buscant servidors DHCP.
+2. **Offer** → Els servidors DHCP que reben el missatge responen amb una oferta (adreça IP i paràmetres).
+3. **Request** → El client tria una de les ofertes i envia una petició acceptant-la.
+4. **Acknowledge** → El servidor confirma la concessió i envia definitivament la configuració al client.
 
-Obrim un terminal, per a fer les operacions de configuració:
+Aquest procés ja el coneixeu i l’heu analitzat amb Wireshark.
 
-* [ ] Instal·lem el servei DHCP a ubuntu
+***
 
-```bash
-profe@sx-srv-profe-dhcp:~$ sudo apt install isc-dhcp-server
-[sudo] password for profe:
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-The following additional packages will be installed:
-  libirs-export161 libisccfg-export163
-Suggested packages:
-  isc-dhcp-server-ldap policycoreutils
-The following NEW packages will be installed:
-  isc-dhcp-server libirs-export161 libisccfg-export163
-0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
-Need to get 529 kB of archives.
-After this operation, 1546 kB of additional disk space will be used.
-Do you want to continue? [Y/n]
+### 2. Diversos servidors DHCP en la mateixa xarxa
+
+En una xarxa poden existir **dos o més servidors DHCP** de manera simultània. Açò és habitual en xarxes grans (per tolerància a fallades) o en entorns mal configurats (on dos administradors han desplegat servidors sense coordinar-se).
+
+#### Què ocorre?
+
+* Tots els servidors reben el **DHCP Discover** del client.
+* Tots responen amb un **DHCP Offer**.
+* El client **no negocia ni comprova** quin és “el millor”: senzillament accepta la **primera oferta que li arriba**.
+* Una vegada triada, envia el **Request** i ignora la resta.
+
+#### Problemes que pot causar
+
+* **Concessions duplicades** si els servidors no tenen rangs ben delimitats.
+* **Clients en xarxes diferents** si cada servidor envia paràmetres incoherents (per exemple, una porta d’enllaç distinta).
+* Dificultat per a fer troubleshooting, ja que els clients poden estar repartits en diferents configuracions.
+
+#### Bones pràctiques
+
+* **Dividir rangs d’IP** entre servidors (per exemple, un servidor gestiona .2-.100 i l’altre .101-.200).
+* Configurar-los com a **servidors redundants** (failover DHCP).
+* Evitar deixar dos servidors “lliures” a la mateixa LAN sense planificació.
+
+***
+
+### 3. Reenviament de DHCP (DHCP Relay)
+
+El protocol DHCP es basa en missatges de difusió (_broadcast_). Açò implica que:
+
+* El missatge de **Discover** no travessa routers.
+* Per defecte, un client només pot contactar amb servidors DHCP que estiguen en la seua mateixa xarxa local.
+
+Però, què ocorre si tenim **un únic servidor DHCP centralitzat** per a diverses xarxes?
+
+#### DHCP Relay Agent
+
+Un dispositiu de xarxa (generalment un router o un encaminador de nivell 3) pot actuar com a **relay agent**:
+
+* Rep les peticions DHCP en la seua xarxa local.
+* Les encapsula i les envia en **unicast** al servidor DHCP en una altra xarxa.
+* Inclou informació extra, com l’**Option 82 (Relay Agent Information)**, que indica al servidor de quina xarxa prové la petició.
+* El servidor respon també via relay i finalment el client rep la configuració.
+
+#### Exemple d’escenari
+
+```
+Client (192.168.10.0/24)  --\
+                             \ 
+                              Router amb DHCP Relay ----> Servidor DHCP (192.168.20.10)
+                             /
+Client (192.168.11.0/24)  --/
 ```
 
-* [ ] Editem el fitxer de configuració del servei, localitzar a la ruta **/etc/dhcp/dhcpd.conf** amb el nostre editor de text preferit, i **amb permisos d'administrador** (fent servir sudo, si cal):
+En aquest cas, el servidor DHCP pot gestionar clients de diverses xarxes sense estar físicament en cadascuna d’elles.
 
-```bash
-profe@sx-srv-profe-dhcp:~$ sudo vi /etc/dhcp/dhcpd.conf
-```
+***
 
-Al fitxer, respectant el format, haurem d'incloure els paràmetres de configuració del servei DHCP. Per a l'exemple, configurarem els següents paràmetres de xarxa:
+### 4. Renovació de concessions: Renew i Rebind
 
-* Temps per defecte d'expiració de les IP: 600 segons
-* Temps màxim d'expiració de les IP: 700 segons
-* xarxa 192.168.0.0/24
-* Porta d'enllaç 192.168.0.1&#x20;
-* rang d'IP disponibles 192.168.0.100 - 192.168.0.200&#x20;
-* DNS per defecte: 8.8.8.8 i 8.8.4.4.&#x20;
+Quan un client obté una IP, no la conserva indefinidament. El servidor DHCP estableix un **temps de lease (concessió)**, que pot ser de minuts, hores o dies. El client ha d’anar renovant la seua concessió seguint tres fases temporals:
 
-```editorconfig
-default-lease-time 600;
-max-lease-time 7200;
+1. **T1 (50% del temps de lease)**
+   * El client intenta renovar l’adreça directament amb el **mateix servidor** que li la va assignar.
+   * El missatge és un _DHCP Request_ enviat en **unicast**.
+   * Si el servidor respon, la concessió es renova i el procés es reinicia.
+2. **T2 (87,5% del temps de lease)**
+   * Si el client no ha rebut resposta en T1, assumeix que el servidor original no està disponible.
+   * Envia un _DHCP Request_ però en **broadcast**, per a què qualsevol servidor disponible puga contestar.
+   * Açò és el que anomenem **Rebind**.
+3. **Expiració (100% del lease)**
+   * Si el client tampoc ha aconseguit renovar en T2, la concessió caduca.
+   * El client **ja no pot utilitzar eixa IP** i ha de tornar a iniciar el procés complet **DORA**.
 
-subnet 192.168.0.0 netmask 255.255.255.0 {
- range 192.168.0.150 192.168.0.175;
- option routers 192.168.0.1;
- option domain-name-servers 8.8.8.8, 8.8.4.4;
- option domain-name "aula.local";
+#### Exemple de línia temporal
+
+Si un lease és de 8 hores:
+
+* A les 4h → T1, el client prova un _Renew_ al servidor original.
+* A les 7h → T2, el client prova un _Rebind_ amb broadcast.
+* A les 8h → si no hi ha resposta, el client perd la IP i torna a _Discover_.
+
+***
+
+### 5. Paràmetres de configuració en un servidor DHCP
+
+Un servidor DHCP pot configurar diversos paràmetres. Els més importants són:
+
+* **Range d’adreces IP** → conjunt d’adreces que podrà assignar.
+* **Màscara de xarxa** → defineix la grandària del segment.
+* **Porta d’enllaç per defecte (router)** → adreça IP del router de sortida.
+* **Servidors DNS** → adreces per a la resolució de noms.
+* **Temps de lease** → duració de la concessió abans d’haver de renovar.
+* **Altres opcions addicionals**:
+  * Servidor WINS.
+  * Domini de cerca.
+  * Paràmetres per a arrencada PXE (bootp).
+  * Informació de localització (Option 82, usada amb DHCP Relay).
+
+#### Exemple de configuració bàsica (Linux, `dhcpd.conf`)
+
+```conf
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.200;
+  option routers 192.168.1.1;
+  option domain-name-servers 8.8.8.8, 1.1.1.1;
+  default-lease-time 600;    # 10 minuts
+  max-lease-time 7200;       # 2 hores
 }
 ```
 
-A continuació, editarem el fitxer de configuració **/etc/default/isc-dhcp-server** per a indicar les targetes de xarxa que acceptaran peticions DHCP.
+***
 
-```bash
-profe@sx-srv-profe-dhcp:~$ sudo vi /etc/default/isc-dhcp-server
-```
+### 6. Resum de conceptes
 
-Al nostre cas, la targeta de xarxa que es troba a la xarxa interna aula és l'enp0s8, per tant, haurem d'indicar-lo així al fitxer:
-
-```
-# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
-#       Separate multiple interfaces with spaces, e.g. "eth0 eth1".
-INTERFACESv4="enp0s8"
-INTERFACESv6=""
-```
-
-* [ ] Apliquem la configuració:
-
-Perquè el nostre servei DHCP comence a funcionar, hem d'iniciar el servei, executant els següents comandaments:
-
-```bash
-profe@sx-cli-profe01:~$ sudo systemctl enable isc-dhcp-server.service
-profe@sx-cli-profe01:~$ sudo systemctl start isc-dhcp-server.service
-profe@sx-cli-profe01:~$ sudo systemctl status isc-dhcp-server.service
-```
-
-En el cas que vulguem reiniciar el servei, perquè hem canviat la configuració, podrem parar i arrancar el servei, o reiniciar-lo:&#x20;
-
-```bash
-profe@sx-cli-profe01:~$ sudo service isc-dhcp-server.service stop;
-profe@sx-cli-profe01:~$ sudo service isc-dhcp-server.service start;
-```
-
-O reiniciar-lo
-
-```bash
-profe@sx-cli-profe01:~$ sudo service isc-dhcp-server.service restart;
-```
-
-i posteriorment, podem comprovar l'estat del servei:
-
-```bash
-profe@sx-cli-profe01:~$ sudo service isc-dhcp-server.service status;
-```
-
-En el cas que el servei no arranque de manera correcta, podem mirar els fitxers de log del sistema, per trobar alguna pista que ens ajude a solucionar l'error.&#x20;
-
-```bash
-profe@sx-cli-profe01:~$ cat /var/log/syslog;
-```
-
-* [ ] Comprovem que el servei funciona correctament:
-
-Per a provar que tot funciona correctament, podem configurar una nova màquina virtual a la nostra xarxa interna, indicant en la seva configuració de xarxa que ha de demanar els paràmetres de la configuració de xarxa al servei DHCP:
-
-```bash
-profe@sx-cli-profe02:~$ cat /etc/netplan/01-network-manager-all.yaml 
-# Let NetworkManager manage all devices on this system
-network:
-  version: 2
-# ⚠️ **ATENCIÓ:**
-# Si estàs utilitzant **Ubuntu Server** en comptes de Desktop, probablement hauries de posar `renderer: networkd` en lloc de `NetworkManager`.
-# Ubuntu Desktop utilitza NetworkManager per defecte, però Ubuntu Server NO.
-# Si utilitzes `renderer: NetworkManager` en Server, i NetworkManager NO està instal·lat i habilitat, la xarxa NO funcionarà.
-# Pots canviar el valor del renderer ací segons el teu cas.
-
-
-  renderer: NetworkManager
-  ethernets:
-    enp0s3:
-      dhcp4: true
-```
-
-* Podem aplicar la configuració de la xarxa, i comprovar els paràmetres assignats:
-
-```bash
-profe@sx-cli-profe02:~$ sudo netplan apply
-
-profe@sx-cli-profe02:~$ ifconfig
-enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 192.168.0.150  netmask 255.255.255.0  broadcast 192.168.0.255
-        inet6 fe80::a00:27ff:fe30:345c  prefixlen 64  scopeid 0x20<link>
-        ether 08:00:27:30:34:5c  txqueuelen 1000  (Ethernet)
-        RX packets 9  bytes 1670 (1.6 KB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 255  bytes 28864 (28.8 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
-        inet 127.0.0.1  netmask 255.0.0.0
-        inet6 ::1  prefixlen 128  scopeid 0x10<host>
-        loop  txqueuelen 1000  (Bucle local)
-        RX packets 94  bytes 9484 (9.4 KB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 94  bytes 9484 (9.4 KB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
-profe@sx-cli-profe02:~$ ip route show
-default via 192.168.0.1 dev enp0s3 proto dhcp metric 100 
-192.168.0.0/24 dev enp0s3 proto kernel scope link src 192.168.0.150 metric 100 
-
-profe@sx-cli-profe02:~$ nmcli dev show enp0s3 | grep IP4
-IP4.ADDRESS[1]:                         192.168.0.150/24
-IP4.GATEWAY:                            192.168.0.1
-IP4.ROUTE[1]:                           dst = 192.168.0.0/24, nh = 0.0.0.0, mt = 100
-IP4.ROUTE[2]:                           dst = 0.0.0.0/0, nh = 192.168.0.1, mt = 100
-IP4.DNS[1]:                             8.8.8.8
-IP4.DNS[2]:                             8.8.4.4
-IP4.DOMAIN[1]:                          aula.local
-
-profe@sx-srv-profe-dhcp:~$ sudo networkctl status
-●        State: routable
-  Online state: online
-       Address: 192.168.0.150 on enp0s3
-                fe80::a00:27ff:fee5:1603 on enp0s3
-       Gateway: 192.168.0.1 on enp0s3
-           DNS: 8.8.8.8
-                8.8.4.4
-```
-
-Si volem comprovar la informació sobre les IP concedides pel servidor, podem visualitzar el contingut del fitxer del servidor **/var/lib/dhcp/dhcp.leases**&#x20;
-
-```bash
-profe@sx-srv-profe-dhcp:~$ cat /var/lib/dhcp/dhcpd.leases
-# The format of this file is documented in the dhcpd.leases(5) manual page.
-# This lease file was written by isc-dhcp-4.4.1
-
-# authoring-byte-order entry is generated, DO NOT DELETE
-authoring-byte-order little-endian;
-
-lease 192.168.0.150 {
-  starts 3 2023/09/27 11:31:34;
-  ends 3 2023/09/27 11:41:34;
-  tstp 3 2023/09/27 11:41:34;
-  cltt 3 2023/09/27 11:31:34;
-  binding state free;
-  hardware ethernet 08:00:27:30:34:5c;
-  uid "\001\010\000'04\\";
-}
-server-duid "\000\001\000\001,\246\314\260\010\000'\255i%";
-
-lease 192.168.0.151 {
-  starts 4 2023/09/28 15:05:39;
-  ends 4 2023/09/28 15:15:39;
-  cltt 4 2023/09/28 15:05:39;
-  binding state active;
-  next binding state free;
-  rewind binding state free;
-  hardware ethernet 08:00:27:71:fe:bd;
-  uid "\001\010\000'q\376\275";
-  client-hostname "sx-cli-jorge-02";
-}
-```
-
+* **Múltiples servidors DHCP** → el client tria el primer que li arriba. Cal planificar rangs i evitar conflictes.
+* **DHCP Relay** → permet gestionar DHCP a través de diferents xarxes utilitzant un agent relay.
+* **Renovació de leases** → T1 (Renew unicast), T2 (Rebind broadcast), Expiració (tornar a Discover).
+* **Configuració mínima d’un servidor DHCP** → rang d’IP, màscara, gateway, DNS i temps de lease.
