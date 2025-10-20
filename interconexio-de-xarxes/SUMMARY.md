@@ -2,7 +2,7 @@
 
 ## Pindoles formatives
 
-* [⚒️ Configuració inicial de les màquines virtuals](README.md)
+* [⚒️ Configuració inicial de les màquines virtuals :)](README.md)
 * [⚒️ Paquets recomanats per a les màquines virtuals Linux](pindoles-formatives/paquets-recomanats-per-a-les-maquines-virtuals-linux.md)
 * [⚒️ Configuració de xarxa a Ubuntu 24.04](pindoles-formatives/configuracio-de-xarxa-a-ubuntu-24.04.md)
 * [⚒️ Configuració del servei de routing a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-de-routing-a-ubuntu-server-24.04.md)
