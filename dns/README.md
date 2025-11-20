@@ -91,7 +91,7 @@ options {
         //========================================================================
         dnssec-validation no;
 
-        listen-on-v6 { any; };
+        listen-on-v6 { none; };
 };
 ```
 
