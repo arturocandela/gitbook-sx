@@ -2,11 +2,11 @@
 description: Configuració de subzona al servei DNS a Ubuntu Server 24.04
 ---
 
-# ⚒ Configuració de subzona al servei DNS a Ubuntu 24.04
+# ⚒️ Configuració de subzona al servei DNS a Ubuntu 24.04
 
 Partim de dues màquines virtual, amb un sistema operatiu basat a Ubuntu Server 24.04
 
-### Configuració del servei DNS de zona del subdomini.&#x20;
+### Configuració del servei DNS de zona del subdomini.
 
 En primer lloc, configurarem el servidor DNS que actua com a servidor de zona del subdomini.
 
@@ -62,7 +62,7 @@ options {
         // If your ISP provided one or more IP addresses for stable
         // nameservers, you probably want to use them as forwarders.
         // Uncomment the following block, and insert the addresses replacing
-        // the all-0's placeholder.
+        // the all-0\'s placeholder.
 
         forwarders {
                 8.8.8.8;
@@ -77,7 +77,7 @@ options {
         //========================================================================
         dnssec-validation no;
 
-        listen-on-v6 { any; };
+        listen-on-v6 { none; };
 };
 ```
 
@@ -89,7 +89,7 @@ OPTIONS="-u bind -4"
 
 * [ ] Configuració de una nova zona de subdomini (zona1.midominio.aula.):
 
-Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis de resolució del servidor. Ací configurarem la zona zona1.midominio.aula, i la zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.&#x20;
+Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis de resolució del servidor. Ací configurarem la zona zona1.midominio.aula, i la zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.
 
 A les dues zones indicarem si el servei actuarà com a primari (master) o secundari (slave), així com el fitxer de configuració de la resolució:
 
@@ -111,7 +111,7 @@ zone "0.168.192.in-addr.arpa" IN {
 
 * [ ] Configuració del fitxer de resolució directa:
 
-Per a crear la nostra BD de resolució de noms, editem el fitxer  **/etc/bind/forward.zona1.midominio.aula**, incluint els registres DNS de configuració de la zona del subdomini:
+Per a crear la nostra BD de resolució de noms, editem el fitxer **/etc/bind/forward.zona1.midominio.aula**, incluint els registres DNS de configuració de la zona del subdomini:
 
 ```bash
 $TTL    30
@@ -173,7 +173,7 @@ profe@sx-srv-profe-dhcp: sudo systemctl start named;
 profe@sx-srv-profe-dhcp: sudo systemctl status named;
 ```
 
-I configurem el tallafoc del servidor perquè habilite les connexions al servei Bind9:&#x20;
+I configurem el tallafoc del servidor perquè habilite les connexions al servei Bind9:
 
 ```bash
 profe@sx-srv-profe-dhcp:~$ sudo ufw allow Bind9;
@@ -197,12 +197,12 @@ Address: 192.168.0.251
 ```
 
 {% hint style="danger" %}
-Fins ara hem configurat el servidor del subdomini zona1.midominio.aula.&#x20;
+Fins ara hem configurat el servidor del subdomini zona1.midominio.aula.
 
 A continuació configurarem el servidor principal del domini midominio.com., que delegarà les peticions de resolució del subdomini a aquest servidor.
 {% endhint %}
 
-### Configuració del servei DNS de zona del domini principal.&#x20;
+### Configuració del servei DNS de zona del domini principal.
 
 A continuació, configurarem el servidor DNS que actua com a servidor de zona del domini principal.
 
@@ -222,7 +222,7 @@ Per a configurar routing, NAT i DHCP, podeu consultar els tutorials de les unita
 
 Obrim un terminal, per a fer les operacions de configuració:
 
-* [ ] Instal·lació del servei DNS&#x20;
+* [ ] Instal·lació del servei DNS
 
 Instal·lem el servei DNS a Ubuntu, la seua documentació i el paquet dnsutils.
 
@@ -264,7 +264,7 @@ options {
         // If your ISP provided one or more IP addresses for stable
         // nameservers, you probably want to use them as forwarders.
         // Uncomment the following block, and insert the addresses replacing
-        // the all-0's placeholder.
+        // the all-0\'s placeholder.
 
         forwarders {
                 8.8.8.8;
@@ -279,7 +279,7 @@ options {
         //========================================================================
         dnssec-validation no;
 
-        listen-on-v6 { any; };
+        listen-on-v6 { none; };
 };
 ```
 
@@ -291,11 +291,11 @@ OPTIONS="-u bind -4"
 
 * [ ] Configuració de una nova zona de domini (midominio.aula.):
 
-Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis de resolució del servidor. Ací configurarem:&#x20;
+Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis de resolució del servidor. Ací configurarem:
 
 * La zona midominio.aula
-* La zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.&#x20;
-* La zona del subdomini. zona1.midominio.aula, indicant que és de tipo fordward, i indicant el servidor DNS de la zona delegada.&#x20;
+* La zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.
+* La zona del subdomini. zona1.midominio.aula, indicant que és de tipo fordward, i indicant el servidor DNS de la zona delegada.
 
 ```bash
 // Configuració per al domini aula.internal
@@ -321,7 +321,7 @@ zone "0.168.192.in-addr.arpa" IN {
 
 * [ ] Configuració del fitxer de resolució directa:
 
-Per a crear la nostra BD de resolució de noms, editem el fitxer  **/etc/bind/forward.midominio.aula**, incluint els registres DNS de configuració de la zona del subdomini:
+Per a crear la nostra BD de resolució de noms, editem el fitxer **/etc/bind/forward.midominio.aula**, incluint els registres DNS de configuració de la zona del subdomini:
 
 ```bash
 $TTL    30
@@ -387,7 +387,7 @@ profe@sx-srv-profe-dhcp: sudo systemctl start named;
 profe@sx-srv-profe-dhcp: sudo systemctl status named;
 ```
 
-I configurem el tallafoc del servidor perquè habilite les connexions al servei Bind9:&#x20;
+I configurem el tallafoc del servidor perquè habilite les connexions al servei Bind9:
 
 ```bash
 profe@sx-srv-profe-dhcp:~$ sudo ufw allow Bind9;
