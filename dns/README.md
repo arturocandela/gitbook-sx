@@ -2,7 +2,7 @@
 description: Configuració del servei DNS a Ubuntu Server 24.04
 ---
 
-# ⚒ Configuració del servei DNS a Ubuntu 24.04
+# ⚒️ Configuració del servei DNS a Ubuntu 24.04
 
 Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 24.04, i que té configurades dues interfícies de xarxa:
 
@@ -16,7 +16,7 @@ Partim d'una màquina virtual, amb un sistema operatiu basat a Ubuntu Server 24.
 
 Obrim un terminal, per a fer les operacions de configuració:
 
-* [ ] Instal·lació del servei DNS&#x20;
+* [ ] Instal·lació del servei DNS
 
 Instal·lem el servei DNS a Ubuntu, la seua documentació i el paquet dnsutils.
 
@@ -39,8 +39,9 @@ Do you want to continue? [Y/n]
 
 Recordem els comandaments per arrancar, parar, reiniciar, recarregar la configuració i consultar l'estat del servei, així com el comandament de reinici o recàrrega de configuració:
 
-<pre class="language-bash"><code class="lang-bash"><strong>sudo service bind9 [start|stop|restart|reload|status];
-</strong></code></pre>
+```bash
+sudo systemctl [enable|start|stop|restart|reload|status] bind9;
+```
 
 També podem fer servir els comandaments corresponents, fent servir systemctl, per activar, arrancar, parar, reiniciar, recarregar la configuració i consultar l'estat del servei:
 
@@ -102,7 +103,7 @@ OPTIONS="-u bind -4"
 
 * [ ] Configuració de una nova zona de domini (aula.internal.):
 
-Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis de resolució del servidor. Ací configurarem la zona aula.internal, i la zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.&#x20;
+Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis de resolució del servidor. Ací configurarem la zona aula.internal, i la zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.
 
 A les dues zones indicarem si el servei actuarà com a primari (master) o secundari (slave), així com el fitxer de configuració de la resolució:
 
@@ -152,7 +153,7 @@ Explicació detallada de la configuració aplicada, directiva a directiva:
 $TTL    30
 ```
 
-* TTL (Time To Live):  Estableix el temps de vida de les respostes del servidor DNS, per aquesta zona. En aquest cas, 30 segons. Si un client fa una consulta referent a la zona configurada, la resposta té una validesa de 30 segons.&#x20;
+* TTL (Time To Live): Estableix el temps de vida de les respostes del servidor DNS, per aquesta zona. En aquest cas, 30 segons. Si un client fa una consulta referent a la zona configurada, la resposta té una validesa de 30 segons.
 
 ```bash
 @       IN      SOA     dns1.aula.internal. admin.aula.internal. (       
@@ -164,12 +165,12 @@ $TTL    30
 ;   
 ```
 
-* Registre **SOA** (Start of Authority):&#x20;
-  * L'**@** referència al nivell principal de la zona que estem configurant, indicada al fitxer **/etc/bind/named.conf.internal(aula.internal.)**&#x20;
+* Registre **SOA** (Start of Authority):
+  * L'**@** referència al nivell principal de la zona que estem configurant, indicada al fitxer **/etc/bind/named.conf.internal(aula.internal.)**
   * **SOA** indica que estem configurant el servidor DNS autoritary de la zona.
   * dns1.aula.internal. indica la DNS del servidor
   * admin.aula.internal. Indica el correu electrònic de l'administrador (el primer punt substitueix l'@ del correu).
-  * La resta de camps numèrics són:&#x20;
+  * La resta de camps numèrics són:
     1. **2**: Aquest és el número de sèrie. Es recomana incrementar aquest número cada vegada que es realitza un canvi a la zona per facilitar la propagació de la informació.
     2. **604800**: Temps de refresc. Indica cada quants segons han de comprovar altres servidors DNS si hi ha hagut canvis al servidor primari.
     3. **86400**: Temps de reintent. Indica quant de temps esperar abans de provar de nou si un intent de comunicació falla.
@@ -190,7 +191,7 @@ gateway IN      A       192.168.0.1
 dhcp    IN      A       192.168.0.1                                      
 ```
 
-* Estem configurant tres registres A, o de resolució de nom a IP, que apunten a la mateixa IP destí. Amb ells hem indicat que:&#x20;
+* Estem configurant tres registres A, o de resolució de nom a IP, que apunten a la mateixa IP destí. Amb ells hem indicat que:
   * La resolució del nom **'dns'** de la zona (.aula.internal.) es correspon amb la IP 192.168.0.1.
   * La resolució del nom **'gateway'** de la zona (.aula.internal.) es correspon amb la IP 192.168.0.1.
   * La resolució del nom **'dhcp'** de la zona (.aula.internal.) es correspon amb la IP 192.168.0.1.
@@ -200,13 +201,11 @@ intranet        IN      A       192.168.0.200
 impresora       IN      A       192.168.0.250
 ```
 
-* Estem configurant dos registres A, o de resolució de nom a IP, que apunten a dos host de la nostra zona DNS. Amb ells hem indicat que:&#x20;
+* Estem configurant dos registres A, o de resolució de nom a IP, que apunten a dos host de la nostra zona DNS. Amb ells hem indicat que:
   * La resolució del nom **'intranet'** de la zona (.aula.internal.) es correspon amb la IP 192.168.0.200.
-  * La resolució del nom **'impresora'** de la zona (.aula.internal.) es correspon amb la IP 192.168.0.250.&#x20;
+  * La resolució del nom **'impresora'** de la zona (.aula.internal.) es correspon amb la IP 192.168.0.250.
 
-<!---->
-
-* [ ] Configuració del fitxer de resolució inversa:
+- [ ] Configuració del fitxer de resolució inversa:
 
 Per a crear la nostra BD de resolució inversa d'IP, copiem el fitxer **/etc/bind/db.127** com **/etc/bind/reverse.aula.internal**, per fer-lo servir de plantilla, i editem el mateix en les dades del nostre domini:
 
@@ -237,7 +236,7 @@ Explicació detallada de la configuració aplicada, directiva a directiva:
 $TTL   30
 ```
 
-* TTL (Time To Live):  Estableix el temps de vida de les respostes del servidor DNS, per aquesta zona. En aquest cas, 30 segons. Si un client fa una consulta referent a la zona configurada, la resposta té una validesa de 30 segons.&#x20;
+* TTL (Time To Live): Estableix el temps de vida de les respostes del servidor DNS, per aquesta zona. En aquest cas, 30 segons. Si un client fa una consulta referent a la zona configurada, la resposta té una validesa de 30 segons.
 
 ```bash
 @       IN      SOA     dns1.aula.internal. admin.aula.internal. (
@@ -248,12 +247,12 @@ $TTL   30
                                 604800 )        ; Negative Cache TTL
 ```
 
-* Registre **SOA** (Start of Authority):&#x20;
-  * L'**@** referència al nivell principal de la zona que estem configurant, indicada al fitxer **/etc/bind/named.conf.**internal**(aula.**internal**.)**&#x20;
+* Registre **SOA** (Start of Authority):
+  * L'**@** referència al nivell principal de la zona que estem configurant, indicada al fitxer **/etc/bind/named.conf.internal(aula.internal.)**
   * **SOA** indica que estem configurant el servidor DNS autoritary de la zona.
   * dns1.aula.internal. indica la DNS del servidor
   * admin.aula.internal. Indica el correu electrònic de l'administrador (el primer punt substitueix l'@ del correu).
-  * La resta de camps numèrics són:&#x20;
+  * La resta de camps numèrics són:
     1. **2**: Aquest és el número de sèrie. Es recomana incrementar aquest número cada vegada que es realitza un canvi a la zona per facilitar la propagació de la informació.
     2. **604800**: Temps de refresc. Indica cada quants segons han de comprovar altres servidors DNS si hi ha hagut canvis al servidor primari.
     3. **86400**: Temps de reintent. Indica quant de temps esperar abans de provar de nou si un intent de comunicació falla.
@@ -266,7 +265,7 @@ $TTL   30
 dns1    IN      A       192.168.0.1
 ```
 
-* **@** referència al domini de la zona que estem configurant, **NS** indica que estem configurant la direcció del servidor DNS del domini i **dns1.aula.**internal**.** indica la dns de resoluició del nameserver.
+* **@** referència al domini de la zona que estem configurant, **NS** indica que estem configurant la direcció del servidor DNS del domini i **dns1.aula.internal.** indica la dns de resoluició del nameserver.
 * **192.168.0.1** indica la IP de la dns **dns1** de la zona configurada (.aula.internal.)
 
 ```bash
@@ -294,15 +293,16 @@ profe@sx-srv-profe-dhcp:~$ sudo named-checkconf
 Engeguem el servei:
 
 ```bash
-profe@sx-srv-profe-dhcp: sudo service bind9 start;
-profe@sx-srv-profe-dhcp: sudo service bind9 status;
-
+## Bind9
+profe@sx-srv-profe-dhcp: sudo systemctl restart bind9;
+profe@sx-srv-profe-dhcp: sudo systemctl restart bind9;
+## named 
 profe@sx-srv-profe-dhcp: sudo systemctl enable named;
 profe@sx-srv-profe-dhcp: sudo systemctl start named;
 profe@sx-srv-profe-dhcp: sudo systemctl status named;
 ```
 
-I configurem el tallafoc del servidor perquè habilite les connexions al servei Bind9:&#x20;
+I configurem el tallafoc del servidor perquè habilite les connexions al servei Bind9:
 
 ```bash
 profe@sx-srv-profe-dhcp:~$ sudo ufw allow Bind9;
@@ -315,7 +315,7 @@ profe@sx-srv-profe-dhcp:~$ sudo ufw status;
 * [ ] Prova del servei configurat
 
 {% hint style="danger" %}
-Per a poder provar el servei DNS configurat, haurem d'engegar un client, i configurar la seua tarjeta de xarxa, indicant que la IP del servei DNS siga la IP de la màquina que acabem de configurar.&#x20;
+Per a poder provar el servei DNS configurat, haurem d'engegar un client, i configurar la seua tarjeta de xarxa, indicant que la IP del servei DNS siga la IP de la màquina que acabem de configurar.
 
 Si estem fent servir un servidor DNS, haurem de modificar els seus paràmertes, i reiniciar el servei, perque els clients puguen rebre la configuració correcta.
 {% endhint %}
@@ -394,7 +394,5 @@ Oct 22 14:53:22 sx-srv-profe-dhcp named[2181]: all zones loaded
 Oct 22 14:53:22 sx-srv-profe-dhcp systemd[1]: Started BIND Domain Name Server.
 Oct 22 14:53:22 sx-srv-profe-dhcp named[2181]: running
 </code></pre>
-
-
 
 [^1]: Error en la configuració del registre dns1.aula.internal
