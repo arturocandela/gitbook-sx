@@ -76,7 +76,7 @@ options {
         // If your ISP provided one or more IP addresses for stable
         // nameservers, you probably want to use them as forwarders.
         // Uncomment the following block, and insert the addresses replacing
-        // the all-0's placeholder.
+        // the all-0\'s placeholder.
 
         forwarders {
                 8.8.8.8;
