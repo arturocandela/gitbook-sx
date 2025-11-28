@@ -297,27 +297,26 @@ Editem el fitxer **/etc/bind/named.conf.local**, per indicar les zones o dominis
 * La zona inversa 0.168.192, corresponent al rang de xarxa 192.168.0.x.
 * La zona del subdomini. zona1.midominio.aula, indicant que és de tipo fordward, i indicant el servidor DNS de la zona delegada.
 
-```bash
-// Configuració per al domini aula.internal
+<pre class="language-bash"><code class="lang-bash">// Configuració per al domini aula.internal
 zone "midominio.aula" IN {
         type master;
         file "/etc/bind/forward.midominio.aula";
         allow-update { none; };
 };
 
-// Configuració per al domini zona1.aula.internal
-zone "zona1.midominio.aula" IN {
-        type forward;
-        forwarders { 192.168.0.2; };
-};
-
+<strong>// Configuració per al domini zona1.aula.internal
+</strong><strong>zone "zona1.midominio.aula" IN {
+</strong><strong>        type forward;
+</strong><strong>        forwarders { 192.168.0.2; };
+</strong><strong>};
+</strong>
 // Configuració per al rang 192.168.0.0/24
 zone "0.168.192.in-addr.arpa" IN {
         type master;
         file "/etc/bind/reverse.midominio.aula";
         allow-update { none; };
 };
-```
+</code></pre>
 
 * [ ] Configuració del fitxer de resolució directa:
 
@@ -420,3 +419,25 @@ Address: 192.168.0.251
 {% hint style="danger" %}
 Ara podem resoldre les DNS del domini i del subdomini, fent servir el servidor del domini com a servidor DNS dels clients. Proba-ho!!
 {% endhint %}
+
+### Configuració utilitzant Servidors Delegats
+
+Tot el que hem vist fins ara, ha sigut configurant els glue-records. Aquesta es la manera correcta de configurar-ho perquè gràcies a ella, podem escalar i mantindre el servidors adecuadament. Un altra opció, pot ser configurant la zona delegada i el servidor DNS delegat per al domini, per a realitzar aquesta configuració es pot fer de la següent manera:
+
+Primer, afegim la configuració de zona del servidor, la zona delegada
+
+```bash
+// Configuració per al domini zona1.aula.internal
+zone "zona1.midominio.aula" IN {
+        type forward;
+        forwarders { 192.168.0.2; };
+};
+```
+
+I després afegim els registres al DNS principal.
+
+```bash
+; Delegacion de Zona
+ext.aula.internal.        IN NS   dns1.ext.aula.internal.
+dns1.ext.aula.internal.   IN A    192.168.0.3
+```
