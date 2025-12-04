@@ -214,7 +214,7 @@ La màquina virtual d'aquest servidor té configurades dues interfície de xarxa
 
 * Una connectada a la xarxa interna 'aula'.
 
-<figure><img src="../.gitbook/assets/image (63).png" alt=""><figcaption><p>Configuració de la interfície de xarxa de VirtualBox a Xarxa interna 'aula'</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (62) (1).png" alt=""><figcaption><p>Configuració de la interfície de xarxa de VirtualBox a Xarxa interna 'aula'</p></figcaption></figure>
 
 {% hint style="info" %}
 Per a configurar routing, NAT i DHCP, podeu consultar els tutorials de les unitats anteriors.
