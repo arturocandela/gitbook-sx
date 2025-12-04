@@ -122,6 +122,32 @@ La zona ha d’incloure:
 * Registre A del DNS (`dns1`)
 * Registre A del web (`www`)
 
+        ┌────────────────────────┐           ┌────────────────────────┐
+        │      DNS EC2           │           │       Web EC2          │
+        │ dns1.<nom>.netsx.es    │           │ www.<nom>.netsx.es     │
+        ├────────────────────────┤           ├────────────────────────┤
+        │ Elastic IP: X.X.X.X    │           │ Elastic IP: Y.Y.Y.Y    │
+        │ SG aplicats:           │           │ SG aplicats:           │
+        │  - ssh-administració   │           │  - ssh-administració   │
+        │  - eixida-internet     │           │  - eixida-internet     │
+        │  - dns-public          │           │  - http-public         │
+        ├────────────────────────┤           ├────────────────────────┤
+        │ Ports oberts:          │           │ Ports oberts:          │
+        │ 53 TCP/UDP (DNS)       │           │ 80 TCP (HTTP)          │
+        │ 22 SSH o 3389 RDP      │           │ 22 SSH o 3389 RDP      │
+        └────────────────────────┘           └────────────────────────┘
+                   │                                      │
+                   │ 53 TCP/UDP                           │ 80 TCP
+                   │                                      │
+                   └──────────────────────┬───────────────┘
+                                          │
+                                          ▼
+                           ┌────────────────────────┐
+                           │        Internet        │
+                           └────────────────────────┘
+
+
+
 ## 5. Proves obligatòries (abans de demanar la delegació)
 
 ### 5.1. Prova des del servidor DNS
