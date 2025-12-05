@@ -1,4 +1,4 @@
-# 📎 AA-Q.3.3.5 - Servidor Web de Subzona a AWS
+# 📎 AA-Q.3.3.6 - Servidor Web de Subzona a AWS
 
 ## 1. Objectiu de la pràctica
 
@@ -17,15 +17,11 @@ Cada alumne crearà **dues instàncies EC2**, cadascuna amb una Elastic IP.
 ### Màquina 1 — Servidor DNS autoritatiu
 
 * Nom canònic (FQDN): `dns1.<nomprimercognom>.netsx.es`
-
   * Exemple: `dns1.arturocandela.netsx.es`
-
 * Sistema operatiu (Elegir una opció):
-
-  * Ubuntu/Debian + Bind9 
+  * Ubuntu/Debian + Bind9
   * Windows Server + DNS Role
 * Ports oberts:
-
   * 53/TCP i 53/UDP
   * 22/TCP (si és Linux)
   * 3389/TCP (si és Windows)
@@ -33,14 +29,11 @@ Cada alumne crearà **dues instàncies EC2**, cadascuna amb una Elastic IP.
 ### Màquina 2 — Servidor Web
 
 * Nom canònic (FQDN): `www.<nomprimercognom>.netsx.es`
-
   * Exemple: `www.arturocandela.netsx.es`
 * Sistema operatiu (Elegir una opció):
-
   * Ubuntu/Debian + Apache2 o Nginx
   * Windows Server + IIS
 * Ports oberts:
-
   * 80/TCP
   * 22/TCP (Linux)
   * 3389/TCP (Windows)
@@ -91,9 +84,9 @@ Aplicar a: només al servidor web.
 * El servidor Web utilitza: SG1, SG2 i SG4.
 
 | Servidor | SG1 | SG2 | SG3 | SG4 |
-|----------|:---:|:---:|:---:|:---:|
-|DNS       |  X  |  X  |  X  |     |
-|WEB       |  X  |  X  |     |  X  |
+| -------- | :-: | :-: | :-: | :-: |
+| DNS      |  X  |  X  |  X  |     |
+| WEB      |  X  |  X  |     |  X  |
 
 ## 4. Configuració de la subzona DNS
 
@@ -120,33 +113,33 @@ La zona ha d’incloure:
 * SOA
 * NS
 * Registre A del DNS (`dns1`)
-* Registre A del web (`www`)
+*   Registre A del web (`www`)
 
-        ┌────────────────────────┐           ┌────────────────────────┐
-        │      DNS EC2           │           │       Web EC2          │
-        │ dns1.<nom>.netsx.es    │           │ www.<nom>.netsx.es     │
-        ├────────────────────────┤           ├────────────────────────┤
-        │ Elastic IP: X.X.X.X    │           │ Elastic IP: Y.Y.Y.Y    │
-        │ SG aplicats:           │           │ SG aplicats:           │
-        │  - ssh-administració   │           │  - ssh-administració   │
-        │  - eixida-internet     │           │  - eixida-internet     │
-        │  - dns-public          │           │  - http-public         │
-        ├────────────────────────┤           ├────────────────────────┤
-        │ Ports oberts:          │           │ Ports oberts:          │
-        │ 53 TCP/UDP (DNS)       │           │ 80 TCP (HTTP)          │
-        │ 22 SSH o 3389 RDP      │           │ 22 SSH o 3389 RDP      │
-        └────────────────────────┘           └────────────────────────┘
-                   │                                      │
-                   │ 53 TCP/UDP                           │ 80 TCP
-                   │                                      │
-                   └──────────────────────┬───────────────┘
-                                          │
-                                          ▼
-                           ┌────────────────────────┐
-                           │        Internet        │
-                           └────────────────────────┘
-
-
+    ```
+      ┌────────────────────────┐           ┌────────────────────────┐
+      │      DNS EC2           │           │       Web EC2          │
+      │ dns1.<nom>.netsx.es    │           │ www.<nom>.netsx.es     │
+      ├────────────────────────┤           ├────────────────────────┤
+      │ Elastic IP: X.X.X.X    │           │ Elastic IP: Y.Y.Y.Y    │
+      │ SG aplicats:           │           │ SG aplicats:           │
+      │  - ssh-administració   │           │  - ssh-administració   │
+      │  - eixida-internet     │           │  - eixida-internet     │
+      │  - dns-public          │           │  - http-public         │
+      ├────────────────────────┤           ├────────────────────────┤
+      │ Ports oberts:          │           │ Ports oberts:          │
+      │ 53 TCP/UDP (DNS)       │           │ 80 TCP (HTTP)          │
+      │ 22 SSH o 3389 RDP      │           │ 22 SSH o 3389 RDP      │
+      └────────────────────────┘           └────────────────────────┘
+                 │                                      │
+                 │ 53 TCP/UDP                           │ 80 TCP
+                 │                                      │
+                 └──────────────────────┬───────────────┘
+                                        │
+                                        ▼
+                         ┌────────────────────────┐
+                         │        Internet        │
+                         └────────────────────────┘
+    ```
 
 ## 5. Proves obligatòries (abans de demanar la delegació)
 
@@ -242,8 +235,7 @@ curl http://www.<nomprimercognom>.netsx.es
 
 * Si s'usa Bind9:
   * \named.conf.local
-  * \forward.<nomprimercognom>.netsx.es
-    
+  * \forward..netsx.es
 * Si s'usa Windows Server - Captures de configuració de:
   * Zona
   * SOA
@@ -261,3 +253,12 @@ curl http://www.<nomprimercognom>.netsx.es
 * Configuració DNS correcta (Bind o Windows)
 * Capacitat de troubleshooting davant el firewall del centre
 
+### 12. Activitats d'Aprofundiment
+
+En cas d'haver acabat la pràctica, abans de l'horari establert, realitza les següents activitats (Obligatoòriament):
+
+* [ ] Mitjançant inteligència artificial, fes una web responsive i xula utilitzant el framework de css bootstrap . La pàgina ha de ser la teua personal com si fos un currículum.
+* [ ] Investiga quins registres hauries de posar per a que la direcció sense `www` també resolga el servidor web.
+* [ ] Crea els registres inversos correctament per a que funcione la búsqueda inversa i afegeix-los a aws en cas de ser necessari.
+* [ ] Afegeix tota la documentació al bulletí de la pràctica quan s'obriga
+*
