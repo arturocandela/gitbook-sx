@@ -21,3 +21,7 @@
 * [📎 AA-Q.5.3.4 – Configuració de la seguretat bàsica HTTP amb Apache 2](practiques/aa-q.5.3.4-configuracio-de-la-seguretat-basica-http-amb-apache-2.md)
 * [📎 AA-Q.5.3.5 – Configuració de HTTPS amb Apache 2 utilitzant certificats auto-signats](practiques/aa-q.5.3.5-configuracio-de-https-amb-apache-2-utilitzant-certificats-auto-signats.md)
 * [📎 UD04P03.- desplegament d'una web estàtica amb S3.](practiques/ud04p03.-desplegament-duna-web-estatica-amb-s3..md)
+
+***
+
+* [🛠️ AF.5.2.7 HTTPS - Certificats Auto-signats](af.5.2.7-https-certificats-auto-signats.md)
