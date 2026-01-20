@@ -18,4 +18,5 @@
 
 * [📎 AA-Q.5.3.2 - Configuració d'un servidor HTTP amb Apache 2](practiques/ud04p01.-configuracio-dun-servidor-http-amb-apache-2.md)
 * [📎 AA-Q.5.3.3 - Configuració d'un servidor HTTP amb IIS.](practiques/ud04p02.-configuracio-dun-servidor-http-amb-iis..md)
+* [📎 AA-Q.5.3.4 – Configuració de la seguretat bàsica HTTP amb Apache 2](practiques/aa-q.5.3.4-configuracio-de-la-seguretat-basica-http-amb-apache-2.md)
 * [📎 UD04P03.- desplegament d'una web estàtica amb S3.](practiques/ud04p03.-desplegament-duna-web-estatica-amb-s3..md)
