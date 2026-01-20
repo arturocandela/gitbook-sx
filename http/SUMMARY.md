@@ -9,6 +9,7 @@
   * [⚒️ AF.5.2.4. Directoris virtuals.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-24.04-desplegat-a-aws/ud04.01.04.-directoris-virtuals..md)
   * [⚒️ AF.5.2.5. Hosts virtuals.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-24.04-desplegat-a-aws/ud04.01.05.-hosts-virtuals..md)
   * [⚒️ AF.5.2.6. Control d'accés, autenticació i autorització.](pindoles-formatives/ud04.01.-apache-2-instal-lat-a-ubuntu-server-24.04-desplegat-a-aws/ud04.01.06.-control-dacces-autenticacio-i-autoritzacio..md)
+  * [🛠️ AF.5.2.7 HTTPS - Certificats Auto-signats](pindoles-formatives/readme/af.5.2.7-https-certificats-auto-signats.md)
 * [⚒️ AF.5.2.x. IIS, instal·lat a Windows server 2022, desplegat a AWS](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/README.md)
   * [⚒️ AF.5.2.7. Instal·lació del servei IIS.](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/ud04.02.01.-instal-lacio-del-servei-iis..md)
   * [⚒️ AF.5.2.8. Hosts virtuals.](pindoles-formatives/ud04.02.-iis-instal-lat-a-windows-server-2022-desplegat-a-aws/ud04.02.02.-hosts-virtuals..md)
@@ -21,7 +22,3 @@
 * [📎 AA-Q.5.3.4 – Configuració de la seguretat bàsica HTTP amb Apache 2](practiques/aa-q.5.3.4-configuracio-de-la-seguretat-basica-http-amb-apache-2.md)
 * [📎 AA-Q.5.3.5 – Configuració de HTTPS amb Apache 2 utilitzant certificats auto-signats](practiques/aa-q.5.3.5-configuracio-de-https-amb-apache-2-utilitzant-certificats-auto-signats.md)
 * [📎 UD04P03.- desplegament d'una web estàtica amb S3.](practiques/ud04p03.-desplegament-duna-web-estatica-amb-s3..md)
-
-***
-
-* [🛠️ AF.5.2.7 HTTPS - Certificats Auto-signats](af.5.2.7-https-certificats-auto-signats.md)
