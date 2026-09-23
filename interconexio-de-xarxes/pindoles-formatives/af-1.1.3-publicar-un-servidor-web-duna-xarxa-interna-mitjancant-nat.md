@@ -324,8 +324,7 @@ Afegir la cadena:
 i la regla:
 
 ```bash
--A PREROUTING -i enp0s3 -p tcp --dport 8080 \
--j DNAT --to-destination 192.168.XY.2:80
+-A PREROUTING -i enp0s3 -p tcp --dport 8080 -j DNAT --to-destination 192.168.XY.2:80
 ```
 
 La secció NAT quedarà semblant a:
@@ -337,12 +336,10 @@ La secció NAT quedarà semblant a:
 :POSTROUTING ACCEPT [0:0]
 
 # Redirecció cap al servidor Apache
--A PREROUTING -i enp0s3 -p tcp --dport 8080 \
--j DNAT --to-destination 192.168.XY.2:80
+-A PREROUTING -i enp0s3 -p tcp --dport 8080 -j DNAT --to-destination 192.168.XY.2:80
 
 # NAT d'eixida de la xarxa interna
--A POSTROUTING -s 192.168.XY.0/24 -o enp0s3 \
--j MASQUERADE
+-A POSTROUTING -s 192.168.XY.0/24 -o enp0s3 -j MASQUERADE
 
 COMMIT
 ```
@@ -357,11 +354,9 @@ Per exemple, per a la xarxa `192.168.12.0/24`:
 :PREROUTING ACCEPT [0:0]
 :POSTROUTING ACCEPT [0:0]
 
--A PREROUTING -i enp0s3 -p tcp --dport 8080 \
--j DNAT --to-destination 192.168.12.2:80
+-A PREROUTING -i enp0s3 -p tcp --dport 8080 -j DNAT --to-destination 192.168.12.2:80
 
--A POSTROUTING -s 192.168.12.0/24 -o enp0s3 \
--j MASQUERADE
+-A POSTROUTING -s 192.168.12.0/24 -o enp0s3 -j MASQUERADE
 
 COMMIT
 ```
