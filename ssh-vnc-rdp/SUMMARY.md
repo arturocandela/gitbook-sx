@@ -9,21 +9,22 @@
   * [6. SSH en AWS i aplicacions gràfiques X11](fonaments/aws-i-x11.md)
   * [7. Escriptori remot: RDP i VNC](fonaments/rdp-i-vnc.md)
 
-## Pindoles formatives
+## Activitats formatives <a href="#pindoles-formatives" id="pindoles-formatives"></a>
 
-* [⚒️ Instal·lació i prova del servei SSH a Ubuntu 24.04](<README (1).md>)
-* [⚒️ Configuració del servei SSH a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-ssh-a-ubuntu-server-24.04.md)
-* [⚒️ Modes d'ús del client SSH](pindoles-formatives/modes-dus-del-client-ssh.md)
-* [⚒️ Connexió amb un servei SSH amb un parell de claus RSA](pindoles-formatives/connexio-amb-un-servei-ssh-amb-un-parell-de-claus-rsa.md)
-* [⚒️ Muntatge d'un sistema de fitxers remot amb sshfs](pindoles-formatives/muntatge-dun-sistema-de-fitxers-remot-amb-sshfs.md)
-* [⚒️ Instal·lar i configurar VNC Server en LUbuntu](pindoles-formatives/instal-lar-i-configurar-vnc-server-en-lubuntu.md)
-* [⚒️ Connectar des de Windows a un escriptori remot VNC](pindoles-formatives/connectar-des-de-windows-a-un-escriptori-remot-vnc.md)
-* [⚒️ Connectar des de Linux a un escriptori remot VNC](pindoles-formatives/connectar-des-de-linux-a-un-escriptori-remot-vnc.md)
-* [⚒️ Instal·lar i configurar escriptori remot en Windows 10](pindoles-formatives/instal-lar-i-configurar-escriptori-remot-en-windows-10.md)
-* [⚒️ Connectar des de Windows a un escriptori remot RDP](pindoles-formatives/connectar-des-de-windows-a-un-escriptori-remot-rdp.md)
-* [⚒️ Connectar des de Linux a un escriptori remot RDP](pindoles-formatives/connectar-des-de-linux-a-un-escriptori-remot-rdp.md)
+* [⚒️ AF.3.1.1 — Instal·lació i prova del servei SSH a Ubuntu 24.04](<README (1).md>)
+* [⚒️ AF.3.1.2 — Configuració del servei SSH a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-ssh-a-ubuntu-server-24.04.md)
+* [⚒️ AF.3.1.3 — Modes d'ús del client SSH](pindoles-formatives/modes-dus-del-client-ssh.md)
+* [⚒️ AF.3.1.4 — Connexió SSH amb un parell de claus RSA](pindoles-formatives/connexio-amb-un-servei-ssh-amb-un-parell-de-claus-rsa.md)
+* [⚒️ AF.3.1.5 — Muntatge d'un sistema de fitxers remot amb sshfs](pindoles-formatives/muntatge-dun-sistema-de-fitxers-remot-amb-sshfs.md)
+* [⚒️ AF.3.1.6 — Instal·lar i configurar VNC Server en LUbuntu](pindoles-formatives/instal-lar-i-configurar-vnc-server-en-lubuntu.md)
+* [⚒️ AF.3.1.7 — Connectar des de Windows a un escriptori remot VNC](pindoles-formatives/connectar-des-de-windows-a-un-escriptori-remot-vnc.md)
+* [⚒️ AF.3.1.8 — Connectar des de Linux a un escriptori remot VNC](pindoles-formatives/connectar-des-de-linux-a-un-escriptori-remot-vnc.md)
+* [⚒️ AF.3.1.9 — Instal·lar i configurar escriptori remot en Windows 10](pindoles-formatives/instal-lar-i-configurar-escriptori-remot-en-windows-10.md)
+* [⚒️ AF.3.1.10 — Connectar des de Windows a un escriptori remot RDP](pindoles-formatives/connectar-des-de-windows-a-un-escriptori-remot-rdp.md)
+* [⚒️ AF.3.1.11 — Connectar des de Linux a un escriptori remot RDP](pindoles-formatives/connectar-des-de-linux-a-un-escriptori-remot-rdp.md)
 
 ## Pràctiques
 
-* [📎 UD03P01.- Configuració i ús d'un servidor SSH Linux](practiques/ud03p01.-configuracio-i-us-dun-servidor-ssh-linux.md)
-* [📎 UD03P02.- Configuració i ús d'un servei d'escriptori remot amb VNC](practiques/ud03p02.-configuracio-i-us-dun-servei-descriptori-remot-amb-vnc.md)
+* [📎 AF.3.2.1 — Configuració i ús d'un servidor SSH Linux](practiques/ud03p01.-configuracio-i-us-dun-servidor-ssh-linux.md)
+* [📎 AF.3.2.2 — Configuració i ús d'un servei d'escriptori remot amb VNC](practiques/ud03p02.-configuracio-i-us-dun-servei-descriptori-remot-amb-vnc.md)
+* [AA-Q.3.2.1 — Administració remota segura i evidències de funcionament](practiques/aa-q.3.2.1-administracio-remota-segura-i-evidencies-de-funcionament.md)
