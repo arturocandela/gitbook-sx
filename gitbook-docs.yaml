@@ -1,0 +1,48 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Serveis en Xarxa
+  structure:
+    - type: space
+      key: space-1
+      title: SA01 - Interconnexió de Xarxes
+      path: interconexio-de-xarxes
+      default: true
+      content:
+        directory: ./interconexio-de-xarxes
+        language: es
+    - type: space
+      key: space-2
+      title: SA02 - Configuració DHCP
+      path: dhcp
+      content:
+        directory: ./dhcp
+    - type: space
+      key: space-3
+      title: SA03 - Administració Remota
+      path: ssh-vnc-rdp
+      content:
+        directory: ./ssh-vnc-rdp
+    - type: space
+      key: space-4
+      title: SAXX - AWS Academy
+      path: aws-academy
+      content:
+        directory: ./aws-academy
+    - type: space
+      key: space-5
+      title: SA04 - DNS
+      path: dns
+      content:
+        directory: ./dns
+    - type: space
+      key: space-6
+      title: SA05 - HTTP
+      path: http
+      content:
+        directory: ./http
+    - type: space
+      key: space-7
+      title: SA06 - FTP
+      path: ftp
+      content:
+        directory: ./ftp
