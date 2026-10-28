@@ -27,4 +27,7 @@
 
 * [📎 AF.3.2.1 — Configuració i ús d'un servidor SSH Linux](practiques/ud03p01.-configuracio-i-us-dun-servidor-ssh-linux.md)
 * [📎 AF.3.2.2 — Configuració i ús d'un servei d'escriptori remot amb VNC](practiques/ud03p02.-configuracio-i-us-dun-servei-descriptori-remot-amb-vnc.md)
-* [AA-Q.3.2.1 — Administració remota segura i evidències de funcionament](practiques/aa-q.3.2.1-administracio-remota-segura-i-evidencies-de-funcionament.md)
+
+## Qualificables
+
+* [AA-Q.3.2.1 — Administració remota segura i evidències de funcionament](qualificables/aa-q.3.2.1-administracio-remota-segura-i-evidencies-de-funcionament.md)

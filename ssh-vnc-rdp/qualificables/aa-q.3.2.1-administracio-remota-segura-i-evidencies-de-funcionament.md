@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # AA-Q.3.2.1 — Administració remota segura i evidències de funcionament
 
 > **Activitat d’aula qualificable única de SA03 · Durada: 14 hores**
