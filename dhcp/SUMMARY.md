@@ -6,7 +6,7 @@
 
 ## Pindoles formatives
 
-* [⚒️ Configuració del servei DHCP a Ubuntu 24.04](<README (1).md>)
+* [⚒️ Configuració del servei DHCP a Ubuntu 24.04](pindoles-formatives/readme.md)
 * [⚒️ Configuració del servei DHCP a Windows Server 2022](pindoles-formatives/configuracio-del-servei-dhcp-a-windows-server-2022.md)
 
 ## Pràctiques
