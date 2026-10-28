@@ -11,7 +11,7 @@
 
 ## Activitats formatives <a href="#pindoles-formatives" id="pindoles-formatives"></a>
 
-* [⚒️ AF.3.1.1 — Instal·lació i prova del servei SSH a Ubuntu 24.04](<README (1).md>)
+* [⚒️ AF.3.1.1 — Instal·lació i prova del servei SSH a Ubuntu 24.04](pindoles-formatives/readme.md)
 * [⚒️ AF.3.1.2 — Configuració del servei SSH a Ubuntu Server 24.04](pindoles-formatives/configuracio-del-servei-ssh-a-ubuntu-server-24.04.md)
 * [⚒️ AF.3.1.3 — Modes d'ús del client SSH](pindoles-formatives/modes-dus-del-client-ssh.md)
 * [⚒️ AF.3.1.4 — Connexió SSH amb un parell de claus RSA](pindoles-formatives/connexio-amb-un-servei-ssh-amb-un-parell-de-claus-rsa.md)
