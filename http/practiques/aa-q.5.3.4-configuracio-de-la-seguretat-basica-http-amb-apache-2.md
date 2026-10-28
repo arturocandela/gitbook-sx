@@ -24,25 +24,25 @@ Cal tindre configurats i funcionals els següents **VirtualHosts i directoris**,
 Aquest VirtualHost disposa dels següents **directoris virtuals (Alias)**:
 
 * **Alias `si`**\
-  &#xNAN;_&#x52;uta real:_ `/var/www/si/html/`\
-  &#xNAN;_&#x41;ccés:_ `http://nomcognom.sx/si`
+  _&#x52;uta real:_ `/var/www/si/html/`\
+  _&#x41;ccés:_ `http://nomcognom.sx/si`
 * **Alias `sox`**\
-  &#xNAN;_&#x52;uta real:_ `/var/www/sox/html/`\
-  &#xNAN;_&#x41;ccés:_ `http://nomcognom.sx/sox`
+  _&#x52;uta real:_ `/var/www/sox/html/`\
+  _&#x41;ccés:_ `http://nomcognom.sx/sox`
 * **Alias `pw`**\
-  &#xNAN;_&#x52;uta real:_ `/var/www/pw/html/`\
-  &#xNAN;_&#x41;ccés:_ `http://nomcognom.sx/pw`
+  _&#x52;uta real:_ `/var/www/pw/html/`\
+  _&#x41;ccés:_ `http://nomcognom.sx/pw`
 
 ***
 
 **VirtualHosts específics**
 
 * **Domini:** `si.nomcognom.sx`\
-  &#xNAN;_&#x44;ocumentRoot:_ `/var/www/si/html/`
+  _&#x44;ocumentRoot:_ `/var/www/si/html/`
 * **Domini:** `sox.nomcognom.sx`\
-  &#xNAN;_&#x44;ocumentRoot:_ `/var/www/sox/html/`
+  _&#x44;ocumentRoot:_ `/var/www/sox/html/`
 * **Domini:** `pw.nomcognom.sx`\
-  &#xNAN;_&#x44;ocumentRoot:_ `/var/www/pw/html/`
+  _&#x44;ocumentRoot:_ `/var/www/pw/html/`
 
 ***
 
