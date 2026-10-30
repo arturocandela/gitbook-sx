@@ -47,13 +47,15 @@ Fes la reinstal·lació **des de la consola de VirtualBox de GlaDOS**, no des d�
 2. Activa i inicia el servei SSH.
 3. Aplica una regla UFW que permeta només el servei SSH necessari.
 4. Crea o reutilitza un usuari no administrador autoritzat i configura autenticació amb clau pública.
-5. Des d’Alyx, connecta amb eixe usuari i executa una ordre remota que identifique GlaDOS.
+5. Quan la clau ja funcione, aplica a `sshd_config` o a un fitxer de `sshd_config.d` estes directives: `PubkeyAuthentication yes`, `PasswordAuthentication no` i `PermitRootLogin no`.
+6. Valida la sintaxi amb `sudo sshd -t` abans de recarregar o reiniciar el servei. Mantín oberta la consola de VirtualBox mentre fas la comprovació.
+7. Des d’Alyx, connecta amb eixe usuari i executa una ordre remota que identifique GlaDOS. Comprova també que l’autenticació per contrasenya ja no és acceptada.
 
 ### Evidències SSH
 
 * **E02 — Reinstal·lació:** terminal de GlaDOS amb la instal·lació completada, `systemctl status ssh` actiu i el seu nom de màquina visible.
-* **E03 — Escolta i filtratge:** resultat de `ss -tlnp` o equivalent i `ufw status verbose`; ha de veure’s el port SSH i la regla aplicada.
-* **E04 — Clau i registre:** des d’Alyx, connexió SSH per clau a GlaDOS i resultat de `hostnamectl` o `hostname`. Afig un fragment de `journalctl -u ssh` o del registre que evidencie l’accés. No mostres la clau privada.
+* **E03 — Escolta, filtratge i enduriment:** resultat de `ss -tlnp` o equivalent, `ufw status verbose` i `sudo sshd -T | grep -E 'passwordauthentication|pubkeyauthentication|permitrootlogin'`. Han de veure’s el port SSH, la regla aplicada i els valors `pubkeyauthentication yes`, `passwordauthentication no` i `permitrootlogin no`.
+* **E04 — Clau, bloqueig de contrasenya i registre:** des d’Alyx, connexió SSH per clau a GlaDOS i resultat de `hostnamectl` o `hostname`; mostra un intent controlat amb `ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no usuari@GlaDOS` que siga rebutjat. Afig un fragment de `journalctl -u ssh` o del registre que evidencie l’accés correcte. No mostres la clau privada.
 
 ## Part 2 — VNC: GlaDOS, Alyx i Windows
 
@@ -105,19 +107,19 @@ Inclou una taula breu, escrita amb les teues paraules, comparant SSH, RDP i VNC:
 
 ## Rúbrica RA6
 
-| Criteri                                                           | Per obtindre la puntuació màxima                                                            | Punts |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----- |
-| **a)** Mètodes d’accés i administració remota                     | E16 compara SSH, RDP i VNC de manera correcta i raonada.                                    | 1     |
-| **b)** Servei d’accés remot en línia de comandos                  | E02, E03 i E04 demostren reinstal·lació, configuració segura i accés SSH per clau a GlaDOS. | 1,5   |
-| **c)** Servei d’accés remot en mode gràfic                        | E05–E11 demostren VNC a GlaDOS i RDP a Windows funcionals.                                  | 1,5   |
-| **d)** Comprovació dels dos mètodes                               | E04 i E06–E11 contenen connexió, acció i verificació final pròpies.                         | 1,5   |
-| **e)** Avantatges i deficiències                                  | E16 identifica usos, avantatges i limitacions, inclosa la seguretat de VNC.                 | 1     |
-| **f)** Accés entre sistemes de diferent naturalesa                | E07 demostra Windows → Linux i E10 Linux → Windows.                                         | 1,5   |
-| **g)** Administració remota entre sistemes de diferent naturalesa | E13–E15 demostren Windows → Linux per PuTTY, túnel SSH, Webmin i verificació de l’acció.    | 1,5   |
-| **Seguretat, documentació i autonomia**                           | E01–E16 estan identificades, ordenades, són individuals i no exposem credencials.           | 0,5   |
+| Criteri                                                           | Per obtindre la puntuació màxima                                                                                        | Punts |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----- |
+| **a)** Mètodes d’accés i administració remota                     | E16 compara SSH, RDP i VNC de manera correcta i raonada.                                                                | 1     |
+| **b)** Servei d’accés remot en línia de comandos                  | E02, E03 i E04 demostren reinstal·lació, tallafocs, clau pública, contrasenya deshabilitada i accés SSH segur a GlaDOS. | 1,5   |
+| **c)** Servei d’accés remot en mode gràfic                        | E05–E11 demostren VNC a GlaDOS i RDP a Windows funcionals.                                                              | 1,5   |
+| **d)** Comprovació dels dos mètodes                               | E04 i E06–E11 contenen connexió, acció i verificació final pròpies.                                                     | 1,5   |
+| **e)** Avantatges i deficiències                                  | E16 identifica usos, avantatges i limitacions, inclosa la seguretat de VNC.                                             | 1     |
+| **f)** Accés entre sistemes de diferent naturalesa                | E07 demostra Windows → Linux i E10 Linux → Windows.                                                                     | 1,5   |
+| **g)** Administració remota entre sistemes de diferent naturalesa | E13–E15 demostren Windows → Linux per PuTTY, túnel SSH, Webmin i verificació de l’acció.                                | 1,5   |
+| **Seguretat, documentació i autonomia**                           | E01–E16 estan identificades, ordenades, són individuals i no exposem credencials.                                       | 0,5   |
 
 **Total: 10 punts.** Una evidència que no indique clarament número, origen, destinació i resultat no es considera vàlida fins que es complete.
 
 ## Lliurament
 
-Entrega un únic dossier o vídeo breu amb les evidències **E01 a E16 en este ordre**. Abans de cada captura o fragment, escriu: número d’evidència, què demostra, màquina d’origen i màquina de destinació.
+Entrega un únic **dossier PDF individual** amb les evidències **E01 a E16 en este ordre**. Cada evidència ha d’incloure una captura, el seu número, què demostra, màquina d’origen i màquina de destinació. No s’accepten vídeos com a lliurament.
