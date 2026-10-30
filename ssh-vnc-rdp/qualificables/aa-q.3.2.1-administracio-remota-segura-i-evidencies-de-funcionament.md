@@ -4,7 +4,7 @@ hidden: true
 
 # AA-Q.3.2.1 — Administració remota segura i evidències de funcionament
 
-> **Activitat d’aula qualificable única de SA03 · Durada: 14 hores**
+> **Activitat d’aula qualificable única de SA03**
 >
 > **Tècnica d’avaluació:** activitat d’aula\
 > **Instrument de qualificació:** rúbrica individual\
@@ -14,7 +14,7 @@ hidden: true
 
 Construïx i demostra l’escenari fix d’esta activitat. El treball és individual: cada evidència ha de mostrar el teu usuari o el teu identificador, encara que les màquines i la xarxa es compartisquen.
 
-No substitutes cap equip, protocol o recorregut per un altre sense autorització docent. No lliures contrasenyes, claus privades, fitxers `.pem`, fitxers `.ppk` ni captures que els mostren.
+No sustituisques cap equip, protocol o recorregut per un altre sense autorització docent. No lliures contrasenyes, claus privades, fitxers `.pem`, fitxers `.ppk` ni captures que els mostren.
 
 ## Escenari obligatori
 
