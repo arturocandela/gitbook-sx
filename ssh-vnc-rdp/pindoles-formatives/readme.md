@@ -56,11 +56,9 @@ sudo systemctl [enable|start|stop|restart|reload|status] ufw;
 
 Per a poder connectar amb el protocol SSH al nostre servidor, hem d'obrir els ports corresponents al tallafocs del sistema. Per defecte, el servidor SSH escoltarà les peticions al port 22.
 
-```bash
-profe@sx-srv-profe-dhcp:~$ sudo ufw disable ssh
-profe@sx-srv-profe-dhcp:~$ sudo ufw allow ssh
-profe@sx-srv-profe-dhcp:~$ sudo ufw enable ssh
-```
+\`\`\`bash profe@sx-srv-profe-dhcp:~~$ sudo ufw allow OpenSSH profe@sx-srv-profe-dhcp:~~$ sudo ufw enable profe@sx-srv-profe-dhcp:\~$ sudo ufw status verbose \`\`\`
+
+Si SSH escolta en un port diferent del 22, substituïx la primera ordre per, per exemple, \`sudo ufw allow 443/tcp\`. No actives el tallafocs remotament sense verificar abans que la regla SSH correcta està aplicada.
 
 * [ ] Prova del servei SSH:
 
