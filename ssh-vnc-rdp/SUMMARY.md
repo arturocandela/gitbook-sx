@@ -22,6 +22,7 @@
 * [⚒️ AF.3.1.9 — Instal·lar i configurar escriptori remot en Windows 10](pindoles-formatives/instal-lar-i-configurar-escriptori-remot-en-windows-10.md)
 * [⚒️ AF.3.1.10 — Connectar des de Windows a un escriptori remot RDP](pindoles-formatives/connectar-des-de-windows-a-un-escriptori-remot-rdp.md)
 * [⚒️ AF.3.1.11 — Connectar des de Linux a un escriptori remot RDP](pindoles-formatives/connectar-des-de-linux-a-un-escriptori-remot-rdp.md)
+* [⚒️ AF.3.1.12 — Administració d'SSH amb Webmin a través d'un túnel SSH](pindoles-formatives/af.3.1.12-administracio-dssh-amb-webmin-a-traves-dun-tunel-ssh.md)
 
 ## Pràctiques
 
