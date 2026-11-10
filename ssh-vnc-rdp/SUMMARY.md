@@ -32,3 +32,7 @@
 ## Qualificables
 
 * [AA-Q.3.2.1 — Administració remota segura i evidències de funcionament](qualificables/aa-q.3.2.1-administracio-remota-segura-i-evidencies-de-funcionament.md)
+
+## Activitats de profundització
+
+* [Accés a Linux i Windows mitjançant un bastió SSH en AWS](profunditzacio/bastio-ssh-aws.md)
