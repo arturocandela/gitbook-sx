@@ -17,13 +17,10 @@
 ## Píndoles formatives
 
 * [⚒️ Configuració del servei DNS a Ubuntu 24.04](<README (1).md>)
-* [⚒️ Configuració del servei DNS a Windows Server 2022](pindoles-formatives/configuracio-del-servei-dns-a-windows-server-2022.md)
-* [⚒️ Configuració de subzona al servei DNS a Ubuntu 24.04](pindoles-formatives/configuracio-de-subzona-al-servei-dns-a-ubuntu-24.04.md)
+* [⚒️ Configuració d'una subzona DNS amb Windows Server 2022](pindoles-formatives/configuracio-del-servei-dns-a-windows-server-2022.md)
+* [⚒️ Configuració d'una subzona DNS amb Linux](pindoles-formatives/configuracio-de-subzona-al-servei-dns-a-ubuntu-24.04.md)
+* [⚒️ Web HTTPS amb Apache2 i Certbot](pindoles-formatives/web-https-amb-apache2-i-certbot.md)
 
 ## Pràctiques
 
-* [📎 AA-Q.3.3.2 - Configuració d'un servidor DNS Linux](practiques/ud02p01.-configuracio-dun-servidor-dns-linux.md)
-* [📎 AA-Q.3.3.3 - Configuració d'un servidor DNS Windows](practiques/ud02p02.-configuracio-dun-servidor-dns-windows.md)
-* [📎 AA-Q.3.3.4 - Servidor DNS de subzona amb Linux](practiques/ud02p03.-configuracio-dun-servidor-dns-de-subzona-amb-linux.md)
-* [📎 AA-Q.3.3.5 - Servidor DNS de subzona amb Windows](practiques/aa-q.3.3.5-servidor-dns-de-subzona-amb-windows.md)
-* [📎 AA-Q.3.3.6 - Servidor Web de Subzona a AWS](practiques/aa-q.3.3.5-servidor-web-de-subzona-a-aws.md)
+* [📎 AA-Q.3.3 - Infraestructura DNS pública, subzones i web HTTPS](practiques/aa-q.3.3-infraestructura-dns-publica-subzones-i-web-https.md)
