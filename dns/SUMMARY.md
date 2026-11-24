@@ -2,7 +2,7 @@
 
 ## Fonaments
 
-* [Fonaments del servei DNS](fonaments/README.md)
+* [Fonaments del servei DNS](README.md)
 * [1. Noms, jerarquia i organització](fonaments/noms-i-jerarquia.md)
 * [2. Resolució, transport i memòria cau](fonaments/resolucio-i-cache.md)
 * [3. Registres i fitxers de zona](fonaments/registres-i-zones.md)
@@ -16,7 +16,7 @@
 
 ## Píndoles formatives
 
-* [⚒️ Configuració del servei DNS a Ubuntu 24.04](README.md)
+* [⚒️ Configuració del servei DNS a Ubuntu 24.04](<README (1).md>)
 * [⚒️ Configuració del servei DNS a Windows Server 2022](pindoles-formatives/configuracio-del-servei-dns-a-windows-server-2022.md)
 * [⚒️ Configuració de subzona al servei DNS a Ubuntu 24.04](pindoles-formatives/configuracio-de-subzona-al-servei-dns-a-ubuntu-24.04.md)
 

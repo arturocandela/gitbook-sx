@@ -1,18 +1,18 @@
 ---
-description: "Assaig de delegació de nomcognom.netsx.es en VirtualBox amb BIND9, NS i glue."
+description: Assaig de delegació de nomcognom.netsx.es en VirtualBox amb BIND9, NS i glue.
 ---
 
 # ⚒️ Configuració de subzona al servei DNS a Ubuntu 24.04
 
-Aquesta guia continua la [píndola de BIND9](../README.md). Es conserva la zona personal **`nomcognom.netsx.es`** i s'afegeix un segon servidor que fa de pare **`netsx.es`** dins del laboratori. S'assaja el mateix tall de zona que després configurarà el professorat en el DNS públic.
+Aquesta guia continua la [píndola de BIND9](<../README (1).md>). Es conserva la zona personal **`nomcognom.netsx.es`** i s'afegeix un segon servidor que fa de pare **`netsx.es`** dins del laboratori. S'assaja el mateix tall de zona que després configurarà el professorat en el DNS públic.
 
 ## 1. Escenari
 
-| Equip | IP d'exemple | Paper |
-| --- | --- | --- |
-| DNS de l'alumne | `192.168.0.1` | Autoritatiu de `nomcognom.netsx.es`. Conserva també la zona inversa del `/24`. |
-| DNS pare de proves | `192.168.0.2` | Autoritatiu de la còpia de laboratori de `netsx.es` i resolutor dels clients durant l'assaig. |
-| Clients | Xarxa `192.168.0.0/24` | Consulten `192.168.0.2` per verificar la delegació. |
+| Equip              | IP d'exemple           | Paper                                                                                         |
+| ------------------ | ---------------------- | --------------------------------------------------------------------------------------------- |
+| DNS de l'alumne    | `192.168.0.1`          | Autoritatiu de `nomcognom.netsx.es`. Conserva també la zona inversa del `/24`.                |
+| DNS pare de proves | `192.168.0.2`          | Autoritatiu de la còpia de laboratori de `netsx.es` i resolutor dels clients durant l'assaig. |
+| Clients            | Xarxa `192.168.0.0/24` | Consulten `192.168.0.2` per verificar la delegació.                                           |
 
 Es canvia `nomcognom` pel nom assignat i s'adapten les IP al rang propi. La còpia de `netsx.es` s'utilitza dins de la xarxa interna de VirtualBox. Durant l'assaig, els clients que consulten el pare local veuran la seua còpia de `netsx.es`. Per consultar la versió pública del domini cal un resolutor extern.
 
@@ -42,7 +42,7 @@ sudo systemctl reload bind9
 
 ## 3. Configurar el pare de laboratori
 
-En el segon servidor s'instal·len `bind9`, `bind9-utils` i `dnsutils`. S'apliquen les [ACL del laboratori](../README.md) per limitar consultes i recursió a la xarxa interna. Es mantenen els reenviadors generals si es necessiten per a altres dominis. La directiva `forwarders { };` en la zona del pare fa que BIND seguisca la delegació de laboratori dins de `netsx.es`.
+En el segon servidor s'instal·len `bind9`, `bind9-utils` i `dnsutils`. S'apliquen les [ACL del laboratori](<../README (1).md>) per limitar consultes i recursió a la xarxa interna. Es mantenen els reenviadors generals si es necessiten per a altres dominis. La directiva `forwarders { };` en la zona del pare fa que BIND seguisca la delegació de laboratori dins de `netsx.es`.
 
 En el bloc `options` del pare de laboratori, s'afig aquesta excepció DNSSEC perquè l'assaig utilitza una còpia local sense signar d'un domini públic. La validació continua activa per a la resta de dominis.
 
